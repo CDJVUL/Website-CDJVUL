@@ -46,10 +46,17 @@
             Projets
           </router-link>
         </li>
+        <li class="nav-item">
+          <router-link
+            class="nav-link left-align"
+            to="/responsables">
+            Responsables
+          </router-link>
+        </li>
         <!-- Uncomment when needed
         <li class="nav-item">
           <router-link class="nav-link left-align" to="/information">Information</router-link>
-        </li> 
+        </li>
         -->
       </ul>
     </div>

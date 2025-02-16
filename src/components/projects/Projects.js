@@ -1,5 +1,26 @@
 export const projects = [
     {
+        title: "Project DARTS",
+        event: "Soirée casino H25",
+        description:
+            "Jeu réalisé à l'occasion d'un événement facultaire de la session d'Hiver 2025. Le joueur est immergé en réalité virtuelle dans un saloon et dispose de deux moyens différents pour marquer des points pour sa faction : toucher une cible au jeu de fléchettes ou obtenir le Jackpot à la machine à sous. Un site web a été créé pour l'occasion afin d'afficher le score actuel des différentes factions et gérer les paris effectués à la table.",
+        participants: [
+            "Maxime Plourde",
+            "Maxime Cordella",
+            "Nour Mohamed Zouine",
+            "Armand Lecomte",
+            "Charles Viau"
+        ],
+        mainImagePath: "projectdarts/ProjectDartsMainImage.png",
+        imagesFolder: "projectdarts",
+        imagesList: [
+            "Image1.png",
+            "Image2.png",
+            "gameCreators.jpg",
+            "ProjectDartsMainImage.png"
+        ]
+    },
+    {
         title: "Crisis at R.W.P. Inc.",
         event: "Concours Ubisoft 2021 (Thème: Séparé.es // Ensemble)",
         description:

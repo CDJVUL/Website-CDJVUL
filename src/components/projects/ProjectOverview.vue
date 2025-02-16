@@ -10,14 +10,14 @@
 
     <div class="preview-wrapper">
       <div class="ratio ratio-16x9">
-        <img 
-          v-if="projectInfo.gameplayTrailer == undefined" 
-          class="embed-responsive-item" 
-          :src="getImagePath(projectInfo.mainImagePath)" 
+        <img
+          v-if="projectInfo.gameplayTrailer == undefined"
+          class="embed-responsive-item"
+          :src="getImagePath(projectInfo.mainImagePath)"
           alt="Image introuvable"
-        >       
+        >
         <iframe
-          v-else        
+          v-else
           :src="projectInfo.gameplayTrailer"
           allowfullscreen
         />

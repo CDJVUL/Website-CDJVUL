@@ -57,6 +57,12 @@
                 alt="Image introuvable"
               >
             </div>
+            <div style="background-color: gray; margin-bottom: 30px; height: 140px;">
+                <a href="javascript:;" @click="goToProject(index)" style="color: white;">
+                  <p style="padding-top: 20px; font-size: 30px;">{{ project.title }}</p>
+                </a>
+                <p v-bind:["innerText"]="project.event" style="padding-top: 10px; font-size: 15px;"></p>
+            </div>
           </div>
         </div>
         <!-- Controls -->
@@ -93,36 +99,76 @@
       <div class="col">
         <div class="card bg-dark text-white h-100">
           <div class="card-body text-center">
-            <h3 class="card-title">
-              Restez à jour sur les événements
-            </h3>
-            <div>
-              <br>
-              <a
-                href="https://www.facebook.com/gamedevUlaval/"
-                target="_blank"
-              >
-                <div class="d-flex align-items-center justify-content-center">
-                  <img
-                    :src="facebookIcon"
-                    class="icons-link rounded-2"
+            <div display="block" style="margin: auto; height: 15%;">
+              <h3 class="card-title">
+                Restez à jour sur les événements
+              </h3>
+            </div>
+            <div style="display: block; margin: auto; height:85%">
+              <div class="row" style="height: 50%;">
+                <div class="col">
+                  <br>
+                  <a
+                    href="https://www.facebook.com/gamedevUlaval/"
+                    target="_blank"
                   >
-                  <span class="icon-box">Facebook</span>
+                    <div class="d-flex align-items-center justify-content-center">
+                      <img
+                        :src="facebookIcon"
+                        class="icons-link rounded-2"
+                      >
+                      <span class="icon-box">Facebook</span>
+                    </div>
+                  </a>
                 </div>
-              </a>
-              <br>
-              <a
-                href="https://discord.gg/yFQpaspDFV"
-                target="_blank"
-              >
-                <div class="d-flex align-items-center justify-content-center">
-                  <img
-                    :src="discordIcon"
-                    class="icons-link rounded-2"
+                <div class="col">
+                  <br>
+                  <a
+                    href="https://discord.gg/yFQpaspDFV"
+                    target="_blank"
                   >
-                  <span class="icon-box">Discord</span>
+                    <div class="d-flex align-items-center justify-content-center">
+                      <img
+                        :src="discordIcon"
+                        class="icons-link rounded-2"
+                      >
+                      <span class="icon-box">Discord</span>
+                    </div>
+                  </a>
                 </div>
-              </a>
+              </div>
+              <div class="row" style="height: 50%;">
+                <div class="col">
+                  <br>
+                  <a
+                    href="https://www.linkedin.com/company/club-de-d%C3%A9veloppement-de-jeux-vid%C3%A9o-de-l-universit%C3%A9-laval/"
+                    target="_blank"
+                  >
+                    <div class="d-flex align-items-center justify-content-center">
+                      <img
+                        :src="linkedIn_Icon"
+                        class="icons-link rounded-2"
+                      >
+                      <span class="icon-box">LinkedIn</span>
+                    </div>
+                  </a>
+                </div>
+                <div class="col">
+                  <br>
+                  <a
+                    href="https://www.linkedin.com/company/club-de-d%C3%A9veloppement-de-jeux-vid%C3%A9o-de-l-universit%C3%A9-laval/"
+                    target="_blank"
+                  >
+                    <div class="d-flex align-items-center justify-content-center">
+                      <img
+                        :src="InstagramIcon"
+                        class="icons-link rounded-2"
+                      >
+                      <span class="icon-box">Instagram</span>
+                    </div>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -140,8 +186,8 @@
               :src="presidentImage"
             >
             <br><br>
-            <p>Maxime Plourde</p>
-            <p>Étudiant au Baccalauréat en informatique</p>
+            <p style="font-size: 20px;">Maxime Plourde</p>
+            <p style="padding-top: 5px;">Étudiant au Baccalauréat en informatique</p>
           </div>
         </div>
       </div>
@@ -159,7 +205,7 @@
             <p>À déterminer</p>
             <br><br>
             <h3>Pour nous contacter</h3>
-            <p>gamedev.admin@ift.ulaval.ca</p>
+            <p><a href="mailto:gamedev.admin@ift.ulaval.ca">gamedev.admin@ift.ulaval.ca</a></p>
           </div>
         </div>
       </div>
@@ -170,10 +216,11 @@
 <script>
 import * as projectsDataFile from "../projects/Projects.js";
 import discordIcon from '@/assets/home/discord.jpg';
+import linkedIn_Icon from '@/assets/home/LinkedIn.png';
+import InstagramIcon from '@/assets/home/Instagram.png';
 import facebookIcon from '@/assets/home/Facebook.svg.png';
 import logoPath from '@/assets/home/logo_cdjvul_1920x1080.png';
-import presidentImage from '@/assets/home/maxime_plourde.jpg';
-
+import presidentImage from '@/assets/home/maxime_plourde_centered.png';
 export default {
   name: "HomePage",
   data() {
@@ -182,6 +229,8 @@ export default {
       logoPath,
       facebookIcon,
       discordIcon,
+      linkedIn_Icon,
+      InstagramIcon,
       presidentImage,
     };
   },
@@ -193,9 +242,18 @@ export default {
   methods: {
     getImagePath(imageName) {
       return new URL(`../../assets/projects/${imageName}`, import.meta.url).href;
+    },
+    goToProject(index) {
+      this.$router.push({
+        name: "ProjectOverview",
+        params: {
+          projectIndex: index
+        }
+      });
     }
   }
 };
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
