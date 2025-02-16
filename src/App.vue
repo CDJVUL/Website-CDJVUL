@@ -9,7 +9,7 @@
     <hr class="version-separator">
 
     <div class="text-center version-container">
-      Siteweb version: {{ version }}
+      Site web version: {{ version }}
     </div>
   </div>
 </template>

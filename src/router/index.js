@@ -3,6 +3,7 @@ import Home from "@/components/home/Home.vue";
 import Information from "@/components/information/Information.vue"
 import ProjectOverview from "@/components/projects/ProjectOverview.vue";
 import Projects from "@/components/projects/Projects.vue";
+import Responsables from "@/components/responsables/Responsables.vue";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -27,6 +28,11 @@ const router = createRouter({
             name: "Information",
             component: Information,
         },
+        {
+            path: "/responsables",
+            name: "ResponsablesPage",
+            component: Responsables
+        }
     ],
     scrollBehavior (to, from, savedPosition) {
         if (savedPosition) {
