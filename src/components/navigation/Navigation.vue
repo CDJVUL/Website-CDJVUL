@@ -49,7 +49,8 @@
         <li class="nav-item">
           <router-link
             class="nav-link left-align"
-            to="/responsables">
+            to="/responsables"
+          >
             Responsables
           </router-link>
         </li>

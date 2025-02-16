@@ -30,7 +30,7 @@ const router = createRouter({
         },
         {
             path: "/responsables",
-            name: "Responsables du club",
+            name: "ResponsablesPage",
             component: Responsables
         }
     ],
