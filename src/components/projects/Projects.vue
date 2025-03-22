@@ -29,9 +29,10 @@
               @click="goToProject(index)"
             >{{ project.title }}</a>
           </h2>
-          <h5 class="project-description">
-            {{ project.description }}
-          </h5>
+          <h5
+            class="project-description"
+            :innerHTML="project.description"
+          />
           <br>
           <div
             v-if="project.participants"

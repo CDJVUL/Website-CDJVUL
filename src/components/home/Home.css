@@ -1,5 +1,31 @@
 .row {
-    margin: 0;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    align-items: stretch;
+    display: flex;
+    justify-content: space-around;
+}
+
+.eventsButton {
+    color: aliceblue;
+    background-color: #282b2e;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.eventsButton:hover {
+    background-color: #5e6062;
+    color: orange;
+}
+
+.imgEvent {
+    display: flexbox;
+    width: 250px;
+    height: 160px;
+    padding-bottom: 20px;
+    padding-right: 1rem;
+    padding-left: 1rem;
 }
 
 .card {
@@ -37,7 +63,7 @@ justify-content: center;
 
 .carousel {
 padding-bottom: 15px;
-width: 60%;
+width: 70%;
 }
 
 .custom-indicators span {
@@ -51,9 +77,98 @@ margin: 0 5px;
 width: 10px;
 }
 
+.image-container {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20%;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.image-container:hover .overlay {
+    opacity: 1;
+}
+
 /* On screens that are 992px or less, make image carousel take up 100% of screen width */
 @media screen and (max-width: 992px) {
     .carousel {
         width: 95%;
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    .col.next-Event{
+        width: initial !important;
+        margin-bottom: 30px;
+    }
+    .row.section1{
+        margin-bottom: 2rem !important;
+    }
+    .imgEvent{
+        width: 375px;
+        height: 230px;
+    }
+    .carousel-wrapper{
+        justify-content: center !important;
+        width: 100%;
+    }
+    .col.next-Available{
+        width: 100%;
+    }
+    .icons-link.rounded-2{
+        max-width: 80px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .icons-link.rounded-2{
+        max-width: 60px;
+    }
+    .mapsGoogle{
+        width: 280px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .imgEvent{
+        width: 350px;
+        height: 190px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .icons-link.rounded-2{
+        max-width: 50px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .imgEvent{
+        width: 300px;
+        height: 170px;
+    }
+    .icons-link.rounded-2{
+        padding: 3px;
     }
 }

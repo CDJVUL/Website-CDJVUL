@@ -4,9 +4,10 @@
       {{ projectInfo.title }}
     </h1>
     <h3>{{ projectInfo.event }}</h3>
-    <h4 class="project-description">
-      {{ projectInfo.description }}
-    </h4>
+    <h4
+      class="project-description"
+      :innerHTML="projectInfo.description"
+    />
 
     <div class="preview-wrapper">
       <div class="ratio ratio-16x9">

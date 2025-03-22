@@ -6,10 +6,65 @@
     <Navigation />
     <router-view class="container-custom" />
 
+    <br>
     <hr class="version-separator">
 
     <div class="text-center version-container">
       Site web version: {{ version }}
+      <br>
+      <div
+        class="row"
+        style="display: inline-flex; padding-bottom: 10px;"
+      >
+        <div class="col">
+          <a
+            href="https://www.facebook.com/gamedevUlaval/"
+            target="_blank"
+          >
+            <img
+              src="../src/assets/home/Facebook.svg.png"
+              width="20px"
+              height="20px"
+            >
+          </a>
+        </div>
+        <div class="col">
+          <a
+            href="https://discord.gg/yFQpaspDFV"
+            target="_blank"
+          >
+            <img
+              src="../src/assets/home/discord.jpg"
+              width="20px"
+              height="20px"
+            >
+          </a>
+        </div>
+        <div class="col">
+          <a
+            href="https://www.instagram.com/cdjv.ul/"
+            target="_blank"
+          >
+            <img
+              src="../src/assets/home/Instagram.png"
+              width="20px"
+              height="20px"
+            >
+          </a>
+        </div>
+        <div class="col">
+          <a
+            href="https://www.linkedin.com/company/club-de-d%C3%A9veloppement-de-jeux-vid%C3%A9o-de-l-universit%C3%A9-laval/"
+            target="_blank"
+          >
+            <img
+              src="../src/assets/home/LinkedIn.png"
+              width="20px"
+              height="20px"
+            >
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -27,8 +82,9 @@ export default {
     return {
       version: __APP_VERSION__
     };
-  },
+  }
 };
+
 </script>
 
 <style>

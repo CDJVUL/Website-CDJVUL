@@ -24,7 +24,7 @@ export const projects = [
         title: "Crisis at R.W.P. Inc.",
         event: "Concours Ubisoft 2021 (Thème: Séparé.es // Ensemble)",
         description:
-            "Crisis at R.W.P. Inc. est un jeu de puzzle coop où vous pouvez jouer le rôle d'un gardien de sécurité à l'intérieur de l'usine ou d'un technicien qui voit seulement ce qui se passes à travers les caméras de sécurité. Communiquer et coopérer pour tenter de garder l'usine opérationnelle. Ce jeu a remporté le prix pour Meilleures créativité et intégration du thème au Concours Ubisoft 2021. Allez le télécharger sur itch.io pour l'essayer: https://freshtoucan.itch.io/crisis-at-rwp-inc",
+            "Crisis at R.W.P. Inc. est un jeu de puzzle coop où vous pouvez jouer le rôle d'un gardien de sécurité à l'intérieur de l'usine ou d'un technicien qui voit seulement ce qui se passes à travers les caméras de sécurité. Communiquer et coopérer pour tenter de garder l'usine opérationnelle. Ce jeu a remporté le prix pour Meilleures créativité et intégration du thème au Concours Ubisoft 2021. Allez le télécharger sur itch.io pour l'essayer: <a href='https://freshtoucan.itch.io/crisis-at-rwp-inc'>https://freshtoucan.itch.io/crisis-at-rwp-inc</a>",
         participants: [
             "Mathieu Bédard",
             "Claire Bouttes",
@@ -48,7 +48,7 @@ export const projects = [
         title: "No Cake In The Abyss",
         event: "Concours Ubisoft 2021 (Thème: Séparé.es // Ensemble)",
         description:
-            "No Cake In The Abyss est un jeu de puzzle coop où vous devez communiquer par différents moyens et coopérer pour naviguer à travers l'usine d'AbyssCorp pour atteindre le gâteau. Allez le télécharger sur itch.io pour l'essayer: https://abyssteam.itch.io/no-cake-in-the-abyss",
+            "No Cake In The Abyss est un jeu de puzzle coop où vous devez communiquer par différents moyens et coopérer pour naviguer à travers l'usine d'AbyssCorp pour atteindre le gâteau. Allez le télécharger sur itch.io pour l'essayer: <a href='https://abyssteam.itch.io/no-cake-in-the-abyss'>https://abyssteam.itch.io/no-cake-in-the-abyss</a>",
         participants: [
             "Sarah Pelletier",
             "Jérôme Collin",
@@ -70,7 +70,7 @@ export const projects = [
         title: "Lighthouse Siege",
         event: "Weekly Game Jam Week 143 (Thème: L'eau courante)",
         description:
-            "Des pirates sont en train de descendre la rivière pour attaquer votre phare. Serez-vous capable de survivre et en détruisant les vagues de bateaux avant qu'ils s'y rendent? Allez le télécharger sur itch.io pour l'essayer: https://neva-stuica.itch.io/lighthouse-siege",
+            "Des pirates sont en train de descendre la rivière pour attaquer votre phare. Serez-vous capable de survivre et en détruisant les vagues de bateaux avant qu'ils s'y rendent? Allez le télécharger sur itch.io pour l'essayer: <a href='https://neva-stuica.itch.io/lighthouse-siege'>https://neva-stuica.itch.io/lighthouse-siege</a>",
         participants: [
             "Antoine Olivier",
             "Noémie Caron",
