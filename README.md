@@ -13,6 +13,22 @@ yarn dev
 #or
 yarn start
 ```
+In case some features requires HTTPS connection, setting up secure connection for localhost is easy.
+By default, when running `yarn dev` a secure server is started over HTTPS if you have the following
+files inside the main project directory :
+
+- `localhost-key.pem`
+- `localhost.pem`
+
+If they don't exists, follow theses steps to create them :
+- Download and install `mkcert` package [here](https://www.npmjs.com/package/mkcert) with `npm` if you don't have it already installed on your hardware.
+
+- Run the following command : `mkcert -install`. It will create a CA (Certificate Authority) for yourself. Accept any prompts required (sudo access may be needed).
+
+- Run this command : `mkcert localhost` in root project's directory, this command will generate the two necessary files (key and pem). Ensure that generated files are stored in the same directory where this README file is stored.
+
+When the key and the certificate have been generated, you are ready to go !
+Note that this configuration is only necessary in local development, when publishing to GitHub, this part is configured automatically by GitHub Pages.
 
 ### Local preview from the .dist folder
 ```bash

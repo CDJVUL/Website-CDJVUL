@@ -8,98 +8,147 @@
       des séances de travail et des conférences avec des professionnels de l'industrie. Ses membres sont encouragés à participer à des concours dans le but de réaliser des projets vidéoludiques.
     </h4><br>
     <!-- Carousel Wrapper -->
-    <div class="carousel-wrapper">
+    <div
+      class="row row-cols-1 row-cols-md-2 g-4 section1"
+      style="/*align-items: center;*/"
+    >
       <div
-        id="carousel-project-images"
-        class="carousel slide carousel-fade"
-        data-bs-ride="carousel"
-        data-bs-interval="5000"
+        class="col next-Available"
+        :style="{width: nextEventAvailable()?'80%':'100%'}"
       >
-        <!-- Indicators -->
-        <div class="carousel-indicators">
-          <button
-            type="button"
-            data-bs-target="#carousel-project-images"
-            data-bs-slide-to="0"
-            class="active"
-          />
-          <button
-            v-for="(project, index) in projects"
-            :key="index"
-            type="button"
-            data-bs-target="#carousel-project-images"
-            :data-bs-slide-to="index+1"
-          />
-        </div>
-        <!-- Slides -->
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="ratio ratio-16x9">
-              <img
-                class="d-block w-100"
-                :src="logoPath"
-                alt="Image introuvable"
-              >
-            </div>
-          </div>
+        <div
+          class="carousel-wrapper"
+          :style="{justifyContent: nextEventAvailable()?'flex-end':'center'}"
+        >
           <div
-            v-for="(project, index) in projects"
-            :key="index"
-            class="carousel-item"
+            id="carousel-project-images"
+            class="carousel slide carousel-fade"
+            data-bs-ride="carousel"
+            data-bs-interval="5000"
+            style="margin-bottom: 30px;"
           >
-            <div class="ratio ratio-16x9">
-              <img
-                class="d-block w-100"
-                :src="getImagePath(project.mainImagePath)"
-                alt="Image introuvable"
-              >
-            </div>
-            <div style="background-color: gray; margin-bottom: 30px; height: 140px;">
-              <a
-                href="javascript:;"
-                style="color: white;"
-                @click="goToProject(index)"
-              >
-                <p style="padding-top: 20px; font-size: 30px;">{{ project.title }}</p>
-              </a>
-              <p
-                :innerText="project.event"
-                style="padding-top: 10px; font-size: 15px;"
+            <!-- Indicators -->
+            <div class="carousel-indicators">
+              <button
+                type="button"
+                data-bs-target="#carousel-project-images"
+                data-bs-slide-to="0"
+                class="active"
+              />
+              <button
+                v-for="(project, index) in projects"
+                :key="index"
+                type="button"
+                data-bs-target="#carousel-project-images"
+                :data-bs-slide-to="index+1"
               />
             </div>
+            <!-- Slides -->
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="ratio ratio-16x9">
+                  <img
+                    class="d-block w-100"
+                    :src="logoPath"
+                    alt="Image introuvable"
+                  >
+                </div>
+              </div>
+              <div
+                v-for="(project, index) in projects"
+                :key="index"
+                class="carousel-item image-container"
+              >
+                <div class="ratio ratio-16x9">
+                  <img
+                    class="d-block w-100"
+                    :src="getImagePath(project.mainImagePath)"
+                    alt="Image introuvable"
+                    @click="goToProject(index)"
+                  >
+                </div>
+                <div
+                  style="background-color: gray; height: 140px; flex-direction: column; cursor:default;"
+                  class="overlay"
+                >
+                  <a
+                    href="javascript:;"
+                    style="color: white;"
+                    @click="goToProject(index)"
+                  >
+                    <p style="font-size: 30px;">{{ project.title }}</p>
+                  </a>
+                  <p
+                    :innerText="project.event"
+                    style="padding-top: 10px; font-size: 15px;"
+                  />
+                </div>
+              </div>
+            </div>
+            <!-- Controls -->
+            <button
+              type="button"
+              class="carousel-control-prev"
+              href="#carousel-project-images"
+              role="button"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              />
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              type="button"
+              class="carousel-control-next"
+              href="#carousel-project-images"
+              role="button"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              />
+              <span class="visually-hidden">Next</span>
+            </button>
           </div>
         </div>
-        <!-- Controls -->
-        <button
-          type="button"
-          class="carousel-control-prev"
-          href="#carousel-project-images"
-          role="button"
-          data-bs-slide="prev"
-        >
-          <span
-            class="carousel-control-prev-icon"
-            aria-hidden="true"
-          />
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button
-          type="button"
-          class="carousel-control-next"
-          href="#carousel-project-images"
-          role="button"
-          data-bs-slide="next"
-        >
-          <span
-            class="carousel-control-next-icon"
-            aria-hidden="true"
-          />
-          <span class="visually-hidden">Next</span>
-        </button>
+      </div>
+      <div
+        v-if="nextEventAvailable()"
+        class="col next-Event"
+        style="width: 20%; height: 400px; display: block;"
+      >
+        <h3>Prochain événement</h3>
+        <div class="card bg-dark text-white h-100">
+          <div class="card-body text-center">
+            <h3 :innerText="eventsList.at(0).name" />
+            <p :innerText="eventsList.at(0).date" />
+            <p
+              :innerText="eventsList.at(0).shortDescription"
+              style="padding: 5px;"
+            />
+            <img
+              :src="eventsList.at(0).imageLink!=''?eventsList.at(0).imageLink:logoPath"
+              class="imgEvent"
+            >
+            <br>
+            <button
+              class="eventsButton"
+              @click="$router.push({name: 'EvenementsPage', query: {nextEvent: true}})"
+            >
+              Plus d'infos
+            </button>
+          </div>
+        </div>
       </div>
     </div>
     <div class="row row-cols-1 row-cols-md-3 g-4">
-      <div class="col">
+      <div
+        id="events"
+        class="col"
+      >
         <div class="card bg-dark text-white h-100">
           <div class="card-body text-center">
             <div
@@ -188,21 +237,24 @@
       <div class="col">
         <div class="card bg-dark text-white h-100">
           <div class="card-body text-center">
-            <h3 class="card-title">
-              Responsable du club
-            </h3><br>
+            <h3
+              class="card-title"
+              :innerText="presidentInfo.role"
+            /><br>
             <img
               class="spotlight"
               alt="Image introuvable"
-              :src="presidentImage"
+              :src="getImagePath(presidentInfo.image, true)"
             >
             <br><br>
-            <p style="font-size: 20px;">
-              Maxime Plourde
-            </p>
-            <p style="padding-top: 5px;">
-              Étudiant au Baccalauréat en informatique
-            </p>
+            <p
+              style="font-size: 20px;"
+              :innerText="presidentInfo.name"
+            />
+            <p
+              style="padding-top: 5px;"
+              :innerText="presidentInfo.domain"
+            />
           </div>
         </div>
       </div>
@@ -214,7 +266,17 @@
             </h3>
             <p>1065 avenue de la Médecine, Québec, Canada</p>
             <p>Pavillon Adrien-Pouliot</p>
-            <p>Local PLT-3778</p><br><br>
+            <p>Local PLT-3778</p><br>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2824.8227201095738!2d-71.2758229883652!3d46.77825462261336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cb89780451e7bbb%3A0x89a343b60103826f!2sPavillon%20Adrien-Pouliot%20(PLT)%20-%20Universit%C3%A9%20Laval!5e1!3m2!1sfr!2sca!4v1740442946482!5m2!1sfr!2sca"
+              width="350"
+              height="220"
+              style="border:0; padding-bottom: 10px;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              class="mapsGoogle"
+            />
             <h3>Heures d'ouverture du local</h3>
             <p>À déterminer</p><br><br>
             <h3>Pour nous contacter</h3>
@@ -225,47 +287,10 @@
     </div>
   </div>
 </template>
-<script>
-import * as projectsDataFile from "../projects/Projects.js";
-import discordIcon from '@/assets/home/discord.jpg';
-import facebookIcon from '@/assets/home/Facebook.svg.png';
-import instagramIcon from '@/assets/home/Instagram.png';
-import linkedInIcon from '@/assets/home/LinkedIn.png';
-import logoPath from '@/assets/home/logo_cdjvul_1920x1080.png';
-import presidentImage from '@/assets/home/maxime_plourde_centered.png';
+<script src="./Home.js">
 export default {
-  name: "HomePage",
-  data() {
-    return {
-      projects: [],
-      logoPath,
-      facebookIcon,
-      discordIcon,
-      linkedInIcon,
-      instagramIcon,
-      presidentImage,
-    };
-  },
-
-  created() {
-    this.projects = projectsDataFile.projects;
-  },
-
-  methods: {
-    getImagePath(imageName) {
-      return new URL(`../../assets/projects/${imageName}`, import.meta.url).href;
-    },
-    goToProject(index) {
-      this.$router.push({
-        name: "ProjectOverview",
-        params: {
-          projectIndex: index
-        }
-      });
-    }
-  }
-};
-
+  name: 'HomePage',
+}
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped src="./Home.css">
