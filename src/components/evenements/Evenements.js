@@ -68,14 +68,11 @@ export default {
                   newEvents.push(item);
                 } else {
                   const eventDate = new Date(item.dateFin.replace(" ",  "T"))
-                  if (state) {
-                    if (eventDate.getTime() > Date.now()) {
+                  if (state && eventDate.getTime() > Date.now()) {
                       newEvents.push(item);
-                    }
-                  } else {
-                    if (eventDate.getTime() < Date.now()) {
+                  }
+                  else if (!state && eventDate.getTime() < Date.now()) {
                       newEvents.push(item);
-                    }
                   }
                 }
               }
