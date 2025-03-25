@@ -67,12 +67,16 @@ export default {
                 if (!item.dateDebut && !state) {
                   newEvents.push(item);
                 } else {
-                  const eventDate = new Date(item.dateDebut.replace(" ",  "T"))
-                  if (state && eventDate.getTime() > Date.now()) {
-                      newEvents.push(item);
-                  } else if (eventDate.getTime() < Date.now()) {
+                  const eventDate = new Date(item.dateFin.replace(" ",  "T"))
+                  if (state) {
+                    if (eventDate.getTime() > Date.now()) {
                       newEvents.push(item);
                     }
+                  } else {
+                    if (eventDate.getTime() < Date.now()) {
+                      newEvents.push(item);
+                    }
+                  }
                 }
               }
             }
