@@ -10,7 +10,6 @@
     <!-- Carousel Wrapper -->
     <div
       class="row row-cols-1 row-cols-md-2 g-4 section1"
-      style="/*align-items: center;*/"
     >
       <div
         class="col next-Available"
@@ -132,8 +131,7 @@
             <img
               :src="eventsList.at(0).imageLink!=''?eventsList.at(0).imageLink:logoPath"
               class="imgEvent"
-            >
-            <br>
+            ><br>
             <button
               class="eventsButton"
               @click="$router.push({name: 'EvenementsPage', query: {nextEvent: true}})"
@@ -239,22 +237,34 @@
           <div class="card-body text-center">
             <h3
               class="card-title"
-              :innerText="presidentInfo.role"
-            /><br>
-            <img
-              class="spotlight"
-              alt="Image introuvable"
-              :src="getImagePath(presidentInfo.image, true)"
+              style="height: 5%;"
             >
-            <br><br>
-            <p
-              style="font-size: 20px;"
-              :innerText="presidentInfo.name"
-            />
-            <p
-              style="padding-top: 5px;"
-              :innerText="presidentInfo.domain"
-            />
+              Présidence
+            </h3><br>
+            <div
+              style="display: grid; height: 85%;"
+              :style="{gridTemplateColumns: getColumns()}"
+            >
+              <div
+                v-for="(president, index) in presidentInfo"
+                :key="index"
+                style="padding: 5px; margin: auto;"
+              >
+                <img
+                  class="spotlight"
+                  alt="Image introuvable"
+                  :src="getImagePath(president.image, true)"
+                ><br><br>
+                <p
+                  style="font-size: 20px;"
+                  :innerText="president.name"
+                />
+                <p
+                  style="padding-top: 5px;"
+                  :innerText="president.domain"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -264,9 +274,7 @@
             <h3 class="card-title">
               Où nous trouver?
             </h3>
-            <p>1065 avenue de la Médecine, Québec, Canada</p>
-            <p>Pavillon Adrien-Pouliot</p>
-            <p>Local PLT-3778</p><br>
+            <p>1065 avenue de la Médecine, Québec, Canada<br>Pavillon Adrien-Pouliot<br>Local PLT-3778</p><br>
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2824.8227201095738!2d-71.2758229883652!3d46.77825462261336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cb89780451e7bbb%3A0x89a343b60103826f!2sPavillon%20Adrien-Pouliot%20(PLT)%20-%20Universit%C3%A9%20Laval!5e1!3m2!1sfr!2sca!4v1740442946482!5m2!1sfr!2sca"
               width="350"
@@ -287,11 +295,6 @@
     </div>
   </div>
 </template>
-<script src="./Home.js">
-export default {
-  name: 'HomePage',
-}
+<script src="./Home.js"> export default {name: 'HomePage'}
 </script>
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped src="./Home.css">
-</style>
+<style scoped src="./Home.css"></style>

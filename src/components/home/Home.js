@@ -25,7 +25,7 @@ export default {
     this.projects = projectsDataFile.projects;
     for (const element of peopleInfo.responsables) {
       if (element.isPresident === true) {
-        this.presidentInfo = element;
+        this.presidentInfo.push(element)
       }
     }
     this.sortEvents()
@@ -42,6 +42,14 @@ export default {
   },
 
   methods: {
+    getColumns() {
+      const OnePresidentLengh = 1;
+      if (this.presidentInfo.length === OnePresidentLengh) {
+        return "100%"
+      }
+        return "50% 50%"
+
+    },
     getImagePath(imageName, president = false) {
       if (!president) {
         return new URL(`../../assets/projects/${imageName}`, import.meta.url).href;

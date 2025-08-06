@@ -10,7 +10,7 @@
     <hr class="version-separator">
 
     <div class="text-center version-container">
-      Site web version: {{ version }}
+      Site web version : {{ version }}
       <br>
       <div
         class="row"
@@ -65,6 +65,11 @@
           </a>
         </div>
       </div>
+      <br>
+      <img
+        :src="UlLogo"
+        style="width: 100px; height: 40px;"
+      >
     </div>
   </div>
 </template>
@@ -72,15 +77,17 @@
 <script>
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navigation from "@/components/navigation/Navigation.vue";
+import UlLogo from '@/assets/navigation/logoUL_250x104.png'
 
 export default {
   name: "App",
   components: {
-    Navigation
+    Navigation,
   },
   data() {
     return {
-      version: __APP_VERSION__
+      version: __APP_VERSION__,
+      UlLogo
     };
   }
 };
