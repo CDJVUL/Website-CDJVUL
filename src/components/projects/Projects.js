@@ -1,4 +1,58 @@
+/*eslint max-lines: ["error", 400]*/
+// setting max-lines higher in this file because projects will keep getting added in this file.
+// Sometime we should consider using a database to store this data.
 export const projects = [
+    {
+        title: "Pigeons Réparateurs Inc.",
+        event: "Concours Ubisoft 2025 (Thème : Réactions en chaîne)",
+        description:
+            "Deux astronautes ont la tâche de guider le petit rover Zeus vers la salle des machines d'un grand vaisseau spatial. Ils devront communiquer et  se coordonner afin de l'amener à se destination dans le temps imparti ! Jeu disponible sur <a href='https://emfa.itch.io/pigeons-reparateurs-inc' target='_blank'>Itch.io</a>.",
+        participants: [
+            "Amadou Is Diop",
+            "Armand Lecomte",
+            "Oleg Petukhov",
+            "Neeko Beaulieu",
+            "Emma Fages",
+            "Alia Ghanim",
+            "Anne-Sophie Giguère",
+            "Alexis Normand-Bélanger"
+        ],
+        mainImagePath: "pigeonsreparateursinc/CoverImage.png",
+        imagesFolder: "pigeonsreparateursinc",
+        imagesList: [
+            "Image1.png"
+        ]
+    },
+    {
+        title: "Rebound Rush",
+        event: "Concours Ubisoft 2025 (Thème : Réactions en chaîne)",
+        description:
+            "Rebound Rush est un jeu de sport rapide où vous affrontez vos amis dans une arène de flipper grandeur nature. Dominez la foule et le terrain en évitant et en utilisant les obstacles à votre avantage et marquez des points dans le but de votre adversaire ! Jeu disponible sur <a href='https://store.steampowered.com/app/3752990/Rebound_Rush/' target='_blank'>Steam</a> et <a href='https://devflipstudios.itch.io/rebound-rush' target='_blank'>Itch.io</a>.<br><br>Ce jeu a obtenu le prix de la meilleure direction et réalisation artistique.",
+        participants: [
+            "Charles Major",
+            "Éloïse Renaud",
+            "William Duplain",
+            "Gabriel Garant",
+            "Maxime Plourde",
+            "Benjamin D'Anjou-Madore",
+            "Thomas Couturier",
+            "Sébastien Dubé"
+        ],
+        mainImagePath: "reboundrush/RB_MainImage.png",
+        imagesFolder: "reboundrush",
+        imagesList: [
+            "7.png",
+            "3.png",
+            "1.png",
+            "6.png",
+            "2.png",
+            "4.png",
+            "5.png",
+            "8.png",
+            "9.png"
+        ],
+        gameplayTrailer: 'https://www.youtube.com/embed/QbE_NCHig5Y'
+    },
     {
         title: "Project DARTS",
         event: "Soirée casino H25",
@@ -24,7 +78,7 @@ export const projects = [
         title: "Crisis at R.W.P. Inc.",
         event: "Concours Ubisoft 2021 (Thème: Séparé.es // Ensemble)",
         description:
-            "Crisis at R.W.P. Inc. est un jeu de puzzle coop où vous pouvez jouer le rôle d'un gardien de sécurité à l'intérieur de l'usine ou d'un technicien qui voit seulement ce qui se passes à travers les caméras de sécurité. Communiquer et coopérer pour tenter de garder l'usine opérationnelle. Ce jeu a remporté le prix pour Meilleures créativité et intégration du thème au Concours Ubisoft 2021. Allez le télécharger sur itch.io pour l'essayer: <a href='https://freshtoucan.itch.io/crisis-at-rwp-inc'>https://freshtoucan.itch.io/crisis-at-rwp-inc</a>",
+            "Crisis at R.W.P. Inc. est un jeu de puzzle coop où vous pouvez jouer le rôle d'un gardien de sécurité à l'intérieur de l'usine ou d'un technicien qui voit seulement ce qui se passes à travers les caméras de sécurité. Communiquer et coopérer pour tenter de garder l'usine opérationnelle. Ce jeu a remporté le prix pour Meilleures créativité et intégration du thème au Concours Ubisoft 2021. Allez le télécharger sur <a href='https://freshtoucan.itch.io/crisis-at-rwp-inc'>Itch.io</a> pour l'essayer !",
         participants: [
             "Mathieu Bédard",
             "Claire Bouttes",
@@ -48,7 +102,7 @@ export const projects = [
         title: "No Cake In The Abyss",
         event: "Concours Ubisoft 2021 (Thème: Séparé.es // Ensemble)",
         description:
-            "No Cake In The Abyss est un jeu de puzzle coop où vous devez communiquer par différents moyens et coopérer pour naviguer à travers l'usine d'AbyssCorp pour atteindre le gâteau. Allez le télécharger sur itch.io pour l'essayer: <a href='https://abyssteam.itch.io/no-cake-in-the-abyss'>https://abyssteam.itch.io/no-cake-in-the-abyss</a>",
+            "No Cake In The Abyss est un jeu de puzzle coop où vous devez communiquer par différents moyens et coopérer pour naviguer à travers l'usine d'AbyssCorp pour atteindre le gâteau. Allez le télécharger sur <a href='https://abyssteam.itch.io/no-cake-in-the-abyss'>Itch.io</a> pour l'essayer !",
         participants: [
             "Sarah Pelletier",
             "Jérôme Collin",
@@ -70,7 +124,7 @@ export const projects = [
         title: "Lighthouse Siege",
         event: "Weekly Game Jam Week 143 (Thème: L'eau courante)",
         description:
-            "Des pirates sont en train de descendre la rivière pour attaquer votre phare. Serez-vous capable de survivre et en détruisant les vagues de bateaux avant qu'ils s'y rendent? Allez le télécharger sur itch.io pour l'essayer: <a href='https://neva-stuica.itch.io/lighthouse-siege'>https://neva-stuica.itch.io/lighthouse-siege</a>",
+            "Des pirates sont en train de descendre la rivière pour attaquer votre phare. Serez-vous capable de survivre et en détruisant les vagues de bateaux avant qu'ils s'y rendent? Allez le télécharger sur <a href='https://neva-stuica.itch.io/lighthouse-siege'>Itch.io</a> pour l'essayer !",
         participants: [
             "Antoine Olivier",
             "Noémie Caron",

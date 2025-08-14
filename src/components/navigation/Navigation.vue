@@ -16,10 +16,16 @@
       class="collapse navbar-collapse"
     >
       <ul class="navbar-nav mr-auto mt-lg-0">
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <img
             :src="logoSrc"
             class="navbar-img"
+          >
+        </li> -->
+        <li class="nav-item">
+          <img
+            :src="cdjLogo"
+            class="navbar-logo"
           >
         </li>
         <li class="nav-item">
@@ -27,7 +33,7 @@
             class="nav-link left-align"
             to="/"
           >
-            Club de Développement de Jeux Vidéo de l'UL
+            Club de Développement de Jeux
           </router-link>
         </li>
         <li class="nav-item">
@@ -73,13 +79,15 @@
 </template>
 
 <script>
+import cdjLogo from '@/assets/navigation/logo_cdjvul.jpg'
 import logoSrc from '@/assets/navigation/logoUL_250x104.png';
 
 export default {
   name: "NavigationMenu",
   data() {
     return {
-      logoSrc
+      logoSrc,
+      cdjLogo
     };
   }
 };
@@ -91,6 +99,12 @@ export default {
   width: 100px;
   height: 40px;
 }
+
+.navbar-logo {
+  width: 40px;
+  height: 40px;
+}
+
 .padding-left {
   padding-left: 10px;
 }
