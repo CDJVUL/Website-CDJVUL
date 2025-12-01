@@ -5,7 +5,7 @@ import Information from "../components/information/Information.vue"
 import ProjectOverview from "../components/projects/ProjectOverview.vue";
 import Projects from "../components/projects/Projects.vue";
 import Responsables from "../components/responsables/Responsables.vue";
-import partenaires from "../components/partenaires/partenaires.vue";
+import partenaires from "../components/partenaires/Partenaires.vue";
 
 const router = createRouter({
     history: createWebHashHistory(import.meta.env.BASE_URL),
