@@ -66,18 +66,43 @@
         </div>
       </div>
       <br>
-      <img
-        :src="UlLogo"
-        style="width: 100px; height: 40px;"
+      <p>Partenaires :</p>
+      <div
+        class="row"
+        style="display: inline-flex; padding-bottom: 20px;"
       >
+        <div class="col">
+          <img
+            :src="LogoASETIN"
+            width="60px"
+            height="50px"
+          >
+        </div>
+        <div class="col">
+          <img
+            :src="LogoAESGUL"
+            width="60px"
+            height="50px"
+          >
+        </div>
+        <div class="col">
+          <img
+            :src="UlLogo"
+            style="width: 120px; height: 50px; margin: auto;"
+          >
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import 'bootstrap/dist/css/bootstrap.min.css';
+import LogoAESGUL from '@/assets/partenaires/AESGUL.png'
+import LogoASETIN from '@/assets/partenaires/ASETIN.png'
 import Navigation from "@/components/navigation/Navigation.vue";
 import UlLogo from '@/assets/navigation/logoUL_250x104.png'
+
 
 export default {
   name: "App",
@@ -87,7 +112,9 @@ export default {
   data() {
     return {
       version: __APP_VERSION__,
-      UlLogo
+      UlLogo,
+      LogoAESGUL,
+      LogoASETIN
     };
   }
 };

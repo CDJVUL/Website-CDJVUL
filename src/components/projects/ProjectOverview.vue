@@ -77,11 +77,12 @@
 
 <script>
 import * as projectsDataFile from "./Projects.js";
+import { MD5 } from "crypto-js";
 
 export default {
   name: "ProjectOverview",
   props: {
-    projectIndex: {
+    projectHash: {
       type: String,
       required: true
     }
@@ -94,7 +95,14 @@ export default {
   }),
 
   created() {
-    this.projectInfo = projectsDataFile.projects[this.projectIndex];
+    for (const project of projectsDataFile.projects) {
+      // eslint-disable-next-line new-cap
+      if (MD5(project.title).toString() === this.projectHash)
+      {
+        this.projectInfo = project
+        break;
+      }
+    }
 
     this.projectImagesPaths = this.getAllImagesPath(this.projectInfo.imagesList, this.projectInfo.imagesFolder)
   },

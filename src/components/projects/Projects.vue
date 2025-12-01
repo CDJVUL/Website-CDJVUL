@@ -3,7 +3,7 @@
     <h1>Projets du club</h1>
     <p>Voici les projets réalisés par les membres du club récemment. Cliquez sur l'image ou sur le nom pour plus d'informations.</p>
     <div
-      class="row row-cols-3 row-cols-md-3 g-4"
+      class="row row-cols-1 row-cols-md-3 g-4"
       style="margin-left: 10px;"
     >
       <div
@@ -87,6 +87,7 @@
 
 <script>
 import * as projectsDataFile from "./Projects.js";
+import { MD5 } from "crypto-js";
 
 export default {
   name: "ProjectsPage",
@@ -103,10 +104,13 @@ export default {
       return new URL(`../../assets/projects/${imageName}`, import.meta.url).href;
     },
     goToProject(index) {
+      
+      
       this.$router.push({
         name: "ProjectOverview",
         params: {
-          projectIndex: index
+          // eslint-disable-next-line new-cap
+          projectHash: MD5(this.projects[index].title).toString()
         }
       });
     }
