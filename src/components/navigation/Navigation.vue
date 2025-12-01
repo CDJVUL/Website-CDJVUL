@@ -68,6 +68,14 @@
             Événements
           </router-link>
         </li>
+        <li class="nav-item">
+          <router-link
+            class="nav-link left-align"
+            to="/partenaires"
+          >
+            Partenaires
+          </router-link>
+        </li>
         <!-- Uncomment when needed
         <li class="nav-item">
           <router-link class="nav-link left-align" to="/information">Information</router-link>

@@ -32,10 +32,12 @@ export default defineConfig(({ mode }) => {
       https: {
         key: fs.readFileSync('./localhost-key.pem'),
         cert: fs.readFileSync('./localhost.pem'),
+        }
       }
-    }}
-    return { ...LOCAL_CONFIG, base: '/Website-CDJVUL/' }
-  } else {
+    }
+    return { ...BASE_CONFIG, base: '/Website-CDJVUL/' }
+  } 
+  else {
     return { ...BASE_CONFIG, base: '/Website-CDJVUL/' };
   }
 })

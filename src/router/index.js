@@ -1,13 +1,14 @@
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHashHistory } from "vue-router";
 import Evenements from "../components/evenements/Evenements.vue";
 import Home from "../components/home/Home.vue";
 import Information from "../components/information/Information.vue"
 import ProjectOverview from "../components/projects/ProjectOverview.vue";
 import Projects from "../components/projects/Projects.vue";
 import Responsables from "../components/responsables/Responsables.vue";
+import partenaires from "../components/partenaires/partenaires.vue";
 
 const router = createRouter({
-    history: createWebHistory(import.meta.env.BASE_URL),
+    history: createWebHashHistory(import.meta.env.BASE_URL),
     routes: [{
             path: "/",
             name: "Home",
@@ -19,7 +20,7 @@ const router = createRouter({
             component: Projects,
         },
         {
-            path: "/projets/:projectIndex",
+            path: "/projet/:projectHash",
             name: "ProjectOverview",
             props: true,
             component: ProjectOverview,
@@ -38,6 +39,11 @@ const router = createRouter({
             path: "/evenements",
             name: "EvenementsPage",
             component: Evenements
+        },
+        {
+            path: "/partenaires",
+            name: "PartenairesPage",
+            component: partenaires
         },
     ],
     scrollBehavior (to, from, savedPosition) {

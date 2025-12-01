@@ -40,7 +40,7 @@ import { VueCompareImage } from 'vue3-compare-image'
                 :right-image="getPersonImage(president.trollImg)"
                 class="spotlight"
                 style="margin: auto;"
-                slider-position-percentage=".9"
+                slider-position-percentage="0.9"
               />
               <img
                 v-if="!president.trollImg"
@@ -83,7 +83,7 @@ import { VueCompareImage } from 'vue3-compare-image'
     <h2 style="padding-top: 20px;">
       Autres responsables
     </h2>
-    <div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
       <div
         v-for="(person, _) in otherResponsables"
         :key="_"
@@ -106,7 +106,7 @@ import { VueCompareImage } from 'vue3-compare-image'
                 :right-image="getPersonImage(person.trollImg)"
                 class="spotlight"
                 style="margin: auto;"
-                slider-position-percentage=".9"
+                slider-position-percentage="0.9"
               />
               <img
                 v-if="!person.trollImg"
