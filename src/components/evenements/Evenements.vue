@@ -24,6 +24,7 @@ if (window.screen.availWidth <= mobileWidth) {
           réseaux sociaux
         </router-link> !
       </p>
+      <br>
       <div
         v-for="(element, index) in events"
         :key="index"

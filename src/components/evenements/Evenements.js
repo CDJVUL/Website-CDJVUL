@@ -32,6 +32,7 @@ export default {
               fetch(repoURL).then(resp2 => {
                 resp2.json().then(json2 => {
                   this.events = json2.data;
+                  this.sortSessions();
                   this.sortEvents();
                   if (nextEvent) {
                     const firstIndex = 0
@@ -45,6 +46,29 @@ export default {
                 })
               })
             })
+          })
+        },
+        sortSessions() {
+          this.events.sort((session1, session2) => {
+            const indexSessionName = 0,
+                  indexYear = 1,
+                  inferior = -1,
+                  partsSession1 = session1.sessionName.split(' '),
+                  partsSession2 = session2.sessionName.split(' '),
+                  sessionNames = [
+                    "Automne",
+                    "Été",
+                    "Hiver"
+                  ],
+                  superior = 1;
+            if (partsSession1.at(indexYear) > partsSession2.at(indexYear)) {
+              return superior;
+            } else if (partsSession1.at(indexYear) === partsSession2.at(indexYear)) {
+              if (sessionNames.indexOf(partsSession1.at(indexSessionName)) > sessionNames.indexOf(partsSession2.at(indexSessionName))) {
+                return superior;
+              }
+            }
+            return inferior;
           })
         },
         showInfosModal(event) {
@@ -69,10 +93,10 @@ export default {
                 } else {
                   const eventDate = new Date(item.dateFin.replace(" ",  "T"))
                   if (state && eventDate.getTime() > Date.now()) {
-                      newEvents.push(item);
+                    newEvents.push(item);
                   }
                   else if (!state && eventDate.getTime() < Date.now()) {
-                      newEvents.push(item);
+                    newEvents.push(item);
                   }
                 }
               }
@@ -126,7 +150,7 @@ export default {
           const copyBtn = document.getElementById("copyButton"),
           timerDelay = 3000;
           try {
-            await navigator.clipboard.writeText(`${window.location.protocol}//${window.location.host}/Website-CDJVUL/#/?eventID=${eventID}`);
+            await navigator.clipboard.writeText(`https://gamedev.fsg.ulaval.ca/#/?eventID=${eventID}`);
             copyBtn.innerText = "Lien copié avec succès !";
 
           } catch (error) {

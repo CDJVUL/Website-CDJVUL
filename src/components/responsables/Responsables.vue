@@ -202,7 +202,9 @@ export default {
   border-radius: 50%;
   width: 100%;
   max-width: 250px;
-  object-fit: contain;
+  max-height: 250px;
+  object-fit: cover;
+  object-position: top;
 }
 
 .icons-link {

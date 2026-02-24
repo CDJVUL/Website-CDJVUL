@@ -180,7 +180,7 @@
                 <div class="col">
                   <br>
                   <a
-                    href="https://discord.gg/yFQpaspDFV"
+                    href="https://discord.gg/FrShW8JQBm"
                     target="_blank"
                   >
                     <div class="d-flex align-items-center justify-content-center">

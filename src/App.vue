@@ -30,7 +30,7 @@
         </div>
         <div class="col">
           <a
-            href="https://discord.gg/yFQpaspDFV"
+            href="https://discord.gg/FrShW8JQBm"
             target="_blank"
           >
             <img
