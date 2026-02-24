@@ -150,7 +150,7 @@ export default {
           const copyBtn = document.getElementById("copyButton"),
           timerDelay = 3000;
           try {
-            await navigator.clipboard.writeText(`${window.location.protocol}//${window.location.host}/Website-CDJVUL/#/?eventID=${eventID}`);
+            await navigator.clipboard.writeText(`https://gamedev.fsg.ulaval.ca/#/?eventID=${eventID}`);
             copyBtn.innerText = "Lien copié avec succès !";
 
           } catch (error) {
