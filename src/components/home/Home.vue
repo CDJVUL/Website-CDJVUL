@@ -63,7 +63,7 @@
                     class="d-block w-100"
                     :src="getImagePath(project.mainImagePath)"
                     alt="Image introuvable"
-                    @click="goToProject(index)"
+                    @click="goToProject(project.title)"
                   >
                 </div>
                 <div
@@ -73,7 +73,7 @@
                   <a
                     href="javascript:;"
                     style="color: white;"
-                    @click="goToProject(index)"
+                    @click="goToProject(project.title)"
                   >
                     <p style="font-size: 30px;">{{ project.title }}</p>
                   </a>
@@ -117,10 +117,9 @@
       <div
         v-if="nextEventAvailable()"
         class="col next-Event"
-        style="width: 20%; height: 400px; display: block;"
       >
         <h3>Prochain événement</h3>
-        <div class="card bg-dark text-white h-100">
+        <div class="card bg-dark text-white">
           <div class="card-body text-center">
             <h3 :innerText="eventsList.at(0).name" />
             <p :innerText="eventsList.at(0).date" />

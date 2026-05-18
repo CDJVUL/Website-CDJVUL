@@ -22,7 +22,7 @@
             <span class="project-bold-text">Événement : </span>
             {{ project.event }}<br><br>
             <img
-              :src="getImagePath(project.mainImagePath)"
+              :src="project.mainImagePath ? getImagePath(project.mainImagePath) : logoClub"
               class="img-fluid"
               @click="goToProject(index)"
             >
@@ -88,11 +88,13 @@
 <script>
 import * as projectsDataFile from "./Projects.js";
 import { MD5 } from "crypto-js";
+import logoClub from '../../assets/home/logo_cdjvul_1920x1080.png'
 
 export default {
   name: "ProjectsPage",
   data: () => ({
-    projects: []
+    projects: [],
+    logoClub
   }),
 
   created() {

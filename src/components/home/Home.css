@@ -29,7 +29,20 @@
 }
 
 .card {
-margin-bottom: 2rem;
+    margin-bottom: 2rem;
+    overflow-y: scroll;
+    height: 420px;
+}
+
+.card-body {
+  display: grid;
+  margin: auto;
+  place-items: center;
+}
+
+.next-Event {
+    margin-bottom: 10px;
+    width: 20%;
 }
 
 .spotlight {
@@ -118,9 +131,8 @@ width: 10px;
 }
 
 @media screen and (max-width: 1500px) {
-    .col.next-Event{
-        width: initial !important;
-        margin-bottom: 30px;
+    .next-Event{
+        width: auto;
     }
     .row.section1{
         margin-bottom: 2rem !important;
@@ -154,6 +166,12 @@ width: 10px;
     .imgEvent{
         width: 350px;
         height: 190px;
+    }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1500px) {
+    .next-Event{
+        width: 50%;
     }
 }
 

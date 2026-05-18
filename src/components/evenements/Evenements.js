@@ -32,7 +32,7 @@ export default {
               fetch(repoURL).then(resp2 => {
                 resp2.json().then(json2 => {
                   this.events = json2.data;
-                  this.sortSessions();
+                  this.sortSessions(this.events);
                   this.sortEvents();
                   if (nextEvent) {
                     const firstIndex = 0
@@ -48,8 +48,8 @@ export default {
             })
           })
         },
-        sortSessions() {
-          this.events.sort((session1, session2) => {
+        sortSessions(list) {
+          list.sort((session1, session2) => {
             const indexSessionName = 0,
                   indexYear = 1,
                   inferior = -1,
@@ -61,9 +61,10 @@ export default {
                     "Hiver"
                   ],
                   superior = 1;
-            if (partsSession1.at(indexYear) > partsSession2.at(indexYear)) {
-              return superior;
-            } else if (partsSession1.at(indexYear) === partsSession2.at(indexYear)) {
+            if (parseInt(partsSession1.at(indexYear), 10) < parseInt(partsSession2.at(indexYear), 10)) {
+              return inferior;
+            }
+            if (partsSession1.at(indexYear) === partsSession2.at(indexYear)) {
               if (sessionNames.indexOf(partsSession1.at(indexSessionName)) > sessionNames.indexOf(partsSession2.at(indexSessionName))) {
                 return superior;
               }
@@ -140,9 +141,10 @@ export default {
            inferior = -1,
            superior = 1;
           if (date1 > date2) {
-            return superior
+            return inferior 
+            // date superior means date is more recent, so it should be first in the list
           } else if (date1 < date2){
-            return inferior
+            return superior
           }
             return equal
         },

@@ -14,7 +14,7 @@
         <img
           v-if="projectInfo.gameplayTrailer == undefined"
           class="embed-responsive-item"
-          :src="getImagePath(projectInfo.mainImagePath)"
+          :src="projectInfo.mainImagePath ? getImagePath(projectInfo.mainImagePath) : logoClub"
           alt="Image introuvable"
         >
         <iframe
@@ -25,10 +25,15 @@
       </div>
     </div>
 
-    <h3 class="project-title">
+    <h3
+      v-if="projectImagesPaths.length > 0"
+      class="project-title"
+    >
       Images et art conceptuel
     </h3>
-    <div class="container">
+    <div
+      class="container"
+    >
       <div class="row">
         <div
           v-for="(image, index) in projectImagesPaths"
@@ -78,6 +83,7 @@
 <script>
 import * as projectsDataFile from "./Projects.js";
 import { MD5 } from "crypto-js";
+import logoClub from '../../assets/home/logo_cdjvul_1920x1080.png'
 
 export default {
   name: "ProjectOverview",
@@ -91,7 +97,8 @@ export default {
     projectInfo: null,
     showModal: false,
     currentImage: null,
-    projectImagesPaths: []
+    projectImagesPaths: [],
+    logoClub
   }),
 
   created() {
@@ -112,7 +119,10 @@ export default {
       return new URL(`../../assets/projects/${imageName}`, import.meta.url).href;
     },
     getAllImagesPath(imagesList, imagesFolder) {
-      return imagesList.map((imageName) => new URL(`../../assets/projects/${imagesFolder}/${imageName}`, import.meta.url).href)
+      if (!imagesList) {
+        return [];
+      }
+      return imagesList.map((imageName) => new URL(`../../assets/projects/${imagesFolder}/${imageName}`, import.meta.url).href);
     },
     showImageModal(selectedImage) {
       document.body.style.overflow = "hidden";

@@ -1,7 +1,101 @@
-/*eslint max-lines: ["error", 400]*/
+/*eslint max-lines: ["warn", 400]*/
 // setting max-lines higher in this file because projects will keep getting added in this file.
 // Sometime we should consider using a database to store this data.
+// Changed error to warn since now it is greater than 400 lines, but it is not a problem since this file is only for storing data and not logic.
 export const projects = [
+    {
+        title: "Lunar Lounge",
+        event: "Concurs Ubisoft 2026 (thème : Années 90)",
+        description: "Deux adolescents, une console, et une salle à manger pleine d'animaux. Bienvenue à Lunar Lounge, une simulation de serveur intergalactique compétitive où la vitesse est tout. Course pour servir les clients avec les goûts les plus étranges de la galaxie, sabotez votre rival, et revendiquez votre gloire de jeu. Accélérez vite, servez plus vite, et faites attention à vos pas : c'est chaque serveur pour soi-même! Le jeu est disponible sur la page <a href=\"https://b3ru.itch.io/lunar-lounge\" target=\"_blank\">Itch.io de l'équipe.</a>",
+        participants: [
+            "Etienne Olivier",
+            "Baptiste Leroux",
+            "Sara Simard",
+            "Odile Ledesma Desrochers",
+            "Gabrielle Gauvin-Dufresne",
+            "Vincent Paquet",
+            "Xavier Leblond",
+            "Benjamin Couillard-Dagneau",
+            "Samuel Berube",
+            "Yohan Decamps"
+        ],
+        mainImagePath: "lunar-lounge/gameCover.png",
+        imagesFolder: "lunar-lounge",
+        imagesList: [
+            "picture1.png",
+            "picture2.png",
+            "picture3.png",
+            "picture4.png",
+        ]
+    },
+    {
+        title: "Arcadium Trip",
+        event: "Concurs Ubisoft 2026 (thème : Années 90)",
+        description: "Coincés dans le monde instable d'Arcadium Trip, quatre étudiants n'ont pas d'autre choix que de s'affronter. Pour survivre, ils doivent collecter des pièces et éliminer leurs adversaires. Le jeu est disponible sur la page <a href=\"https://dev-devy.itch.io/arcadium-trip\" target=\"_blank\">Itch.io de l'équipe.</a>",
+        participants: [
+            "Alexandra Baloi",
+            "Anthony Tiveron",
+            "Gabriel Garant",
+            "Armand Lecomte",
+            "Louis-Philippe Séguin",
+            "Nour Mohamed Zouine",
+            "Rudy Saal",
+            "Yan Tremblay"
+        ],
+        mainImagePath: "arcadium-trip/gameCover.png",
+        imagesFolder: "arcadium-trip",
+        imagesList: [
+            "picture1.png",
+            "picture2.png",
+            "picture3.png",
+            "picture4.png",
+            "picture5.png",
+            "picture6.jpg"
+        ]
+    },
+    {
+        title: "What Haunts Us",
+        event: "Bootcamp Ubisoft 2025 (thème : Réactions en chaîne)",
+        description: "Ce projet est réalisé en parallèle du Concours Ubisoft 2025, en suivant les mêmes contraintes et exigences. Notre objectif est de créer un jeu respectant les critères du concours tout en offrant une expérience collaborative et enrichissante aux participants. Ce jeu est disponible sur le <a href=\"https://github.com/gamedevUlaval/Ubi-Bootcamp-2025\" target=\"_blank\">GitHub du club.</a>",
+        participants: [
+            "Vincent Vilain",
+            "Nour Zouine",
+            "Sophie Nayebi",
+            "Bradon Tremblay",
+            "Ben Alaya Aymen",
+            "Katrina Bonneau",
+            "Sara Simard"
+        ],
+        mainImagePath: "bootcamp-25/gameCover.jpg",
+        imagesFolder: "bootcamp-25",
+        imagesList: [
+            "picture1.png",
+            "picture2.png",
+            "picture3.png",
+            "concept-art1.png"
+        ]
+    },
+    {
+        title: "Projet de session A25",
+        event: "Soirée casino H26",
+        description: "Ce projet est réalisé à pour un événement facultaire de la session d'Hiver 2026, la soirée Casino. C'est un jeu en réalité virtuelle, où le joueur incarne un pirate sur un bateau et doit effectuer des 1v1 type FarWest contre les mascottes des autres associations pour marquer des points. Une variété d'armes est disponible pour arriver à ses fins.",
+        participants: [
+            "Nour Mohamed Zouine",
+            "Louis-Philippe Séguin",
+            "Rudy Saal",
+            "Benjamin Couillard-Dagneau",
+            "Alexandra Baloi",
+            "Gabrielle Poirier",
+            "Armand Lecomte"
+        ],
+        mainImagePath: "projet-casino-26/cover.jpeg",
+        imagesFolder: "projet-casino-26",
+        imagesList: [
+            "picture1.jpeg",
+            "picture2.jpeg",
+            "picture3.jpeg"
+        ]
+    },
     {
         title: "Pigeons Réparateurs Inc.",
         event: "Concours Ubisoft 2025 (Thème : Réactions en chaîne)",
