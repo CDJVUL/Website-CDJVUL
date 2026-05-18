@@ -1,11 +1,21 @@
 .row {
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-bottom: 10px;
-    align-items: center;
-    display: flex;
-    justify-content: space-around;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  align-items: stretch;
+  display: flex;
+  justify-content: space-around;
 
+}
+
+.eventsList {
+  margin-bottom: 20px;
+}
+
+.card-body {
+  display: grid;
+  margin: auto;
+  place-items: center;
 }
 
 hr {

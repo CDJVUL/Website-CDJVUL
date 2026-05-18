@@ -26,13 +26,14 @@ if (window.screen.availWidth <= mobileWidth) {
       </p>
       <br>
       <div
-        v-for="(element, index) in events"
+        v-for="(element, index) in events.toReversed()"
         :key="index"
+        class="eventsList"
       >
         <h3
           v-if="filterActive(element.events, true).length >= 1"
           :innerText="element.sessionName"
-          style="padding-bottom: 20px; padding-top: 30px;"
+          style="padding-bottom: 20px; padding-top: 30px; color: gold;"
         />
         <div class="row row-cols-1 row-cols-md-3 g-4">
           <div
@@ -41,7 +42,7 @@ if (window.screen.availWidth <= mobileWidth) {
           >
             <div
               class="col"
-              style="height: 420px;"
+              style="height: 100%; padding: 5px;"
             >
               <div class="card bg-dark text-white h-100">
                 <div class="card-body text-center">
@@ -75,11 +76,12 @@ if (window.screen.availWidth <= mobileWidth) {
       <div
         v-for="(element, index2) in events"
         :key="index2"
+        class="eventsList"
       >
         <h3
           v-if="filterActive(element.events, false).length >= 1"
           :innerText="element.sessionName"
-          style="padding-bottom: 20px; padding-top: 10px;"
+          style="padding-bottom: 20px; padding-top: 10px; color: gold;"
         />
         <div class="row row-cols-1 row-cols-md-3 g-4">
           <div
@@ -88,7 +90,7 @@ if (window.screen.availWidth <= mobileWidth) {
           >
             <div
               class="col"
-              style="height: 420px;"
+              style="height: 100%; padding: 5px;"
             >
               <div class="card bg-dark text-white h-100">
                 <div class="card-body text-center">

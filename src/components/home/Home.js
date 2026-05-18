@@ -1,5 +1,6 @@
 import * as peopleInfo from '../responsables/Responsables.js'
 import * as projectsDataFile from "../projects/Projects.js";
+import { MD5 } from "crypto-js";
 import discordIcon from '@/assets/home/discord.jpg';
 import facebookIcon from '@/assets/home/Facebook.svg.png';
 import instagramIcon from '@/assets/home/Instagram.png';
@@ -56,11 +57,12 @@ export default {
       }
         return new URL(`../../assets/responsables/${imageName}`, import.meta.url).href;
     },
-    goToProject(index) {
+    goToProject(name) {
       this.$router.push({
         name: "ProjectOverview",
         params: {
-          projectIndex: index
+          // eslint-disable-next-line new-cap
+          projectHash: MD5(name).toString()
         }
       });
     },
