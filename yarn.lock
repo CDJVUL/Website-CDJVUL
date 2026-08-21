@@ -1116,6 +1116,11 @@ util-deprecate@^1.0.2:
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
   integrity sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==
 
+vault66-crt-effect@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/vault66-crt-effect/-/vault66-crt-effect-3.1.1.tgz#9bd2236f7041b3401dc2a175cbb0765e73c97c59"
+  integrity sha512-piSVW3wnwO2AGEzwjJ7k8DWF5dxN6edjjtz8jWZxsqkDAHihdE905M150jP9v0U5HdXSgUI0Aa4q83/VJ3/JSg==
+
 vite@^5.3.4:
   version "5.4.19"
   resolved "https://registry.yarnpkg.com/vite/-/vite-5.4.19.tgz#20efd060410044b3ed555049418a5e7d1998f959"

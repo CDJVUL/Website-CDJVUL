@@ -1,71 +1,26 @@
 <script setup>
 import * as peopleInfo from './Responsables.js';
-import { VueCompareImage } from 'vue3-compare-image'
-
 </script>
 
 <template>
-  <div>
-    <h1
-      class="justify-content-center"
-      style="padding-top: 10px;"
-    >
-      L'équipe du club
-    </h1>
-    <p>
-      Voici pour la session d'Automne 2025 les responsables du club. Ces derniers sont des piliers importants au bon fonctionnement du club et de ses activités.<br>
-      Si vous souhaitez rentrer en contact avec l'une de ces personnes en particulier, écrivez-lui à travers l'adresse du club :<br>
-      <a href="mailto:gamedev.admin@ift.ulaval.ca">gamedev.admin@ift.ulaval.ca</a> en précisant à quelle personne s'adresse votre message. Merci !
-    </p>
+  <div class="container-staff">
+    <h1 class="justify-content-center" style="padding-top: 10px;">L'équipe du club</h1>
+    <p>Voici pour la session d'Automne 2025 les responsables du club. Ces derniers sont des piliers importants au bon fonctionnement du club et de ses activités.<br></p>
     <div class="row row-cols-1 row-cols-md-2 g-4">
-      <div
-        v-for="(president, _) in presidenceInfo"
-        :key="_"
-      >
-        <div
-          class="col"
-          style="height: 500px;"
-        >
-          <div class="card bg-dark text-white h-100">
-            <div class="card-body text-center">
-              <h3
-                class="card-title"
-                :innerText="president.role"
-                style="height: 40px;"
-              />
-              <br>
-              <VueCompareImage
-                v-if="president.image != '' && president.trollImg != ''"
-                :left-image="getPersonImage(president.image)"
-                :right-image="getPersonImage(president.trollImg)"
-                class="spotlight"
-                style="margin: auto;"
-                slider-position-percentage="0.9"
-              />
+      <div v-for="(president, _) in presidenceInfo" :key="_">
+        <div class="col" style="height: 500px;">
+          <div>
+            <div class="staff-body text-center">
+              <h3 class="card-title" :innerText="president.role" style="height: 40px;"/>
               <img
-                v-if="!president.trollImg"
-                class="spotlight"
-                alt="Image introuvable"
+                class="staff-img"
+                alt="President"
                 :src="getPersonImage(president.image)"
               >
-              <br v-if="!president.trollImg">
-              <br>
-              <p
-                :innerText="president.name"
-                style="font-size: 20px;"
-              />
-              <p
-                :innerText="president.domain"
-                style="padding-top: 5px; height: 50px; padding-bottom: 5px;"
-              />
-              <a
-                :href="president.link"
-                target="_blank"
-              >
-                <div
-                  class="d-flex align-items-center justify-content-center"
-                  style="padding-top: 10px;"
-                >
+              <p :innerText="president.name" style="font-size: 20px;"/>
+              <p :innerText="president.domain" style="padding-top: 5px; height: 50px; padding-bottom: 5px;"/>
+              <a :href="president.link" target="_blank">
+                <div class="d-flex align-items-center justify-content-center" style="padding-top: 10px;">
                   <img
                     :src="linkedInIcon"
                     class="icons-link rounded-2"
@@ -80,58 +35,22 @@ import { VueCompareImage } from 'vue3-compare-image'
         </div>
       </div>
     </div>
-    <h2 style="padding-top: 20px;">
-      Autres responsables
-    </h2>
+    <h2 style="padding-top: 20px;">Autres responsables</h2>
     <div class="row row-cols-1 row-cols-md-3 g-4">
-      <div
-        v-for="(person, _) in otherResponsables"
-        :key="_"
-      >
-        <div
-          class="col"
-          style="height: 500px;"
-        >
-          <div class="card bg-dark text-white h-100">
-            <div class="card-body text-center">
-              <h3
-                class="card-title"
-                :innerText="person.role"
-                style="height: 40px;"
-              />
-              <br>
-              <VueCompareImage
-                v-if="person.image != '' && person.trollImg != ''"
-                :left-image="getPersonImage(person.image)"
-                :right-image="getPersonImage(person.trollImg)"
-                class="spotlight"
-                style="margin: auto;"
-                slider-position-percentage="0.9"
-              />
+      <div v-for="(person, _) in otherResponsables" :key="_">
+        <div class="col" style="height: 500px;">
+          <div>
+            <div class="staff-body text-center">
+              <h3 class="card-title" :innerText="person.role" style="height: 40px;"/>
               <img
-                v-if="!person.trollImg"
-                class="spotlight"
+                class="staff-img"
                 alt="Image introuvable"
                 :src="getPersonImage(person.image)"
               >
-              <br v-if="!person.trollImg">
-              <br>
-              <p
-                :innerText="person.name"
-                style="font-size: 20px;"
-              />
-              <p
-                :innerText="person.domain"
-                style="padding-top: 5px; height: 50px; padding-bottom: 5px;"
-              />
-              <a
-                :href="person.link"
-                target="_blank"
-              >
-                <div
-                  class="d-flex align-items-center justify-content-center"
-                  style="padding-top: 10px;"
-                >
+              <p :innerText="person.name" style="font-size: 20px;"/>
+              <p :innerText="person.domain" style="padding-top: 5px; height: 50px; padding-bottom: 5px;"/>
+              <a :href="person.link" target="_blank">
+                <div class="d-flex align-items-center justify-content-center" style="padding-top: 10px;">
                   <img
                     :src="linkedInIcon"
                     class="icons-link rounded-2"
@@ -185,6 +104,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.container-staff {
+  width: 100%;
+}
+
 .row {
   margin: 0;
   align-items: center;
@@ -198,13 +121,14 @@ export default {
   margin-bottom: 2rem;
 }
 
-.spotlight {
-  border-radius: 50%;
+.staff-img {
   width: 100%;
   max-width: 250px;
   max-height: 250px;
   object-fit: cover;
   object-position: top;
+  margin-bottom: 2rem;
+  border: 2px solid #B7431D;
 }
 
 .icons-link {
@@ -222,6 +146,13 @@ export default {
 
 p {
   margin: 0;
+}
+
+.staff-body {
+  background-color: rgb(0 0 0 / 0.95);
+  padding: 10px;
+  border: 2px solid #83FBD7;
+  height: 475px;
 }
 
 .custom-indicators span {

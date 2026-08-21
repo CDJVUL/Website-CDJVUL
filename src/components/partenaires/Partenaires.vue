@@ -7,6 +7,7 @@ import PlanPartenariats from '@/assets/partenaires/PLAN-COMMANDITE-CDJ-2025-2026
 </script>
 
 <template>
+
   <div>
     <h1 style="padding-top: 10px;">
       Partenaires du club 2025 - 2026

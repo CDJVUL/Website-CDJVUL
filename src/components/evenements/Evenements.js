@@ -5,6 +5,7 @@ import logoClub from '../../assets/home/logo_cdjvul_1920x1080.png'
 import { useRoute } from "vue-router";
 
 export default {
+    components: {},
     data: () => ({
         showInfo: false,
         currentEvent : [],
