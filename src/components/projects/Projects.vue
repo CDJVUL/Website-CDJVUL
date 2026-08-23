@@ -136,7 +136,7 @@ h1 {
 
 .projects-list {
   width: 25%;
-  height: 780px;
+  height: 1000px;
   margin-top: 122px;
   overflow: scroll;
 }
@@ -211,7 +211,7 @@ img:hover {
 
 .project-card {
   width: 100%;
-  height: 780px;
+  height: 1000px;
   overflow: scroll;
   background-color: rgb(0 0 0 / 0.95);
   border: 2px solid #459A7B;
@@ -220,7 +220,7 @@ img:hover {
 }
 
 .default-project-list {
-  height: 780px;
+  height: 1000px;
   overflow: scroll;
 }
 

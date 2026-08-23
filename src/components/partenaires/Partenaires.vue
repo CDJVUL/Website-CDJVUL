@@ -1,16 +1,10 @@
 <script setup>
-
-import LogoAESGUL from '@/assets/partenaires/AESGUL.png'
-import LogoASETIN from '@/assets/partenaires/ASETIN.png'
-import PlanPartenariats from '@/assets/partenaires/PLAN-COMMANDITE-CDJ-2025-2026.pdf'
-
+  import PlanPartenariats from '@/assets/partenaires/PLAN-COMMANDITE-CDJ-2025-2026.pdf'
 </script>
-
 <template>
-
-  <div>
+  <div class="container-partner">
     <h1 style="padding-top: 10px;">
-      Partenaires du club 2025 - 2026
+      Partenaires du club 2026 - 2027
     </h1>
     <p>
       Voici la liste des partenaires qui soutiennent les activités du Club cette année ! Il existe 3 niveaux, 
@@ -23,132 +17,90 @@ import PlanPartenariats from '@/assets/partenaires/PLAN-COMMANDITE-CDJ-2025-2026
         target="_blank"
       >document de partenariat</a> !
     </p>
-    <h2>Partenaires <span style="color: red;">Rouge</span> & <span style="color: orange;">Or</span></h2>
-    <div class="row row-cols-1 row-cols-md-2 g-4">
-      <div
-        class="col"
-        style="height: 500px;"
-      >
-        <div class="card bg-dark text-white h-100">
-          <div class="card-body text-center">
-            <h3
-              class="card-title"
-              innerText="ASETIN"
-              style="height: 40px;"
-            />
-            <img
-              class="spotlight"
-              alt="Image introuvable"
-              :src="LogoASETIN"
-              style="max-width: 300px;"
-            >
-            <br>
-            <br>
-            <p
-              innerText="Association des étudiants en informatique et génie logiciel"
-              style="font-size: 20px;"
-            />
-            <p
-              innerText="Association départementale de la faculté des sciences et de génie de l'UL"
-              style="padding-top: 5px; height: 50px; padding-bottom: 5px;"
-            />
-            
-            <a
-              href="https://asetin.ca/"
-              target="_blank"
-            >
-              <div
-                class="d-flex align-items-center justify-content-center"
-                style="padding-top: 10px;"
-              >
-                🌐
-                <span class="icon-box">Site WEB</span>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div
-        class="col"
-        style="height: 500px;"
-      >
-        <div class="card bg-dark text-white h-100">
-          <div class="card-body text-center">
-            <h3
-              class="card-title"
-              innerText="AESGUL"
-              style="height: 40px;"
-            />
-            <img
-              class="spotlight"
-              alt="Image introuvable"
-              :src="LogoAESGUL"
-              style="max-width: 300px;"
-            >
-            <br>
-            <br>
-            <p
-              innerText="Association des étudiants en sciences et génie de l'université laval"
-              style="font-size: 20px;"
-            />
-            <p
-              innerText="Association facultaire de la faculté des sciences et de génie de l'UL"
-              style="padding-top: 5px; height: 50px; padding-bottom: 5px;"
-            />
-            
-            <a
-              href="https://www.aesgul.com/"
-              target="_blank"
-            >
-              <div
-                class="d-flex align-items-center justify-content-center"
-                style="padding-top: 10px;"
-              >
-                🌐
-                <span class="icon-box">Site WEB</span>
-              </div>
-            </a>
-          </div>
+    <div v-if="filterTiers('Rouge & Or').length >= 1">
+      <h2>Partenaires <span style="color: red;">Rouge</span> & <span style="color: orange;">Or</span></h2>
+      <div class="tier-section">
+        <div v-for="(partner, index) in filterTiers('Rouge & Or')" :key="index" class="partner-card">
+          <h3>{{ partner.name }}</h3>
+          <img :src="partner.logo">
+          <p>{{ partner.description }}</p>
+          <button @click="goToWebsite(partner.website)" class="partner-website">Site web</button>
         </div>
       </div>
     </div>
-    <br>
-    <!-- à décommenter si on a des partenaires argent ou bronze dans le futur.-->
-    <!-- <h2>Partenaires <span style="color: darkgray;">Argent</span></h2>
-    <h2>Partenaires <span style="color: darkgoldenrod;">Bronze</span></h2> -->
   </div>
 </template>
-
 <script>
+import {partenaires} from "./Partenaires.js";
 
 export default {
-    name: "PartenairesPage",
+  name: "PartenairesPage",
+  methods: {
+    filterTiers(tier)
+    {
+      const filteredPartners = [];
+      for (const partner of partenaires) {
+        if (partner.tier === tier) {
+          filteredPartners.push(partner);
+        }
+      }
+      return filteredPartners;
+    },
+    goToWebsite(website) {
+      window.open(website, '_blank');
+    }
+  }
 }
-
 </script>
-
 <style scoped>
+.container-partner {
+  margin: 15px;
+  padding: 25px;
+  background-color: rgb(0 0 0 / 0.9);
+  border: 2px solid #459A7B;
 
-.row {
-  margin: 0;
-  align-items: center;
-  display: flex;
-  justify-content: space-around;
-  margin-left: 30px;
-  margin-right: 30px;
+  p {
+    font-family: Agency FB, sans-serif;
+  }
 }
 
-.icons-link {
+.tier-section {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 15px;
+}
+
+.partner-card {
   width: 100%;
-  max-width: 30px;
-  object-fit: contain;
-  display: inline-block;
+  height: 100%;
+  padding: 25px;
+  background-color: rgb(0 0 0 / 0.9);
+  border: 2px solid #459A7B;
+
+  img {
+    width: 250px;
+    height: 205px;
+  }
 }
 
-.icon-box {
-  display: inline-block;
-  color: white;
-  padding-left: 10px;
+.partner-website {
+  padding: 5px 10px 5px 10px;
+  border: none;
+  background-color: #83FBD7;
+  transition: all 0.25s;
+}
+
+.partner-website:hover {
+  background-color: #B7431D;
+}
+
+@media screen and (max-width: 750px) {
+  .tier-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 </style>
