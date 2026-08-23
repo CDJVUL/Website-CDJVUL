@@ -41,7 +41,7 @@
       <div v-else>
         <div class="row row-cols-1 row-cols-md-3 g-4 default-project-list" style="margin-left: 10px;">
           <div v-for="(project, index) in projects" :key="index">
-            <div class="card bg-dark text-white h-100">
+            <div class="project-small-card">
               <div class="card-body">
                 <h2 class="card-title">
                   <a href="javascript:" class="project-title-link" @click="changeProject(index)">{{ project.title }}</a>
@@ -130,8 +130,11 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 2em;
   overflow: hidden;
+  margin: 15px;
+  padding: 25px;
+  background-color: rgb(0 0 0 / 0.9);
+  border: 2px solid #459A7B;
 }
 
 .projects-list {
@@ -219,6 +222,14 @@ img:hover {
   padding: 10px;
 }
 
+.project-small-card {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  background-color: rgb(0 0 0 / 0.95);
+  border: 2px solid #459A7B;
+}
+
 .default-project-list {
   height: 1000px;
   overflow: scroll;
@@ -253,7 +264,7 @@ img:hover {
   display: none;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 992px) {
   .projects-list {
     display: none;
   }
