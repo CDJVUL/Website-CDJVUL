@@ -50,6 +50,20 @@
         </div>
       </nav>
     </div>
+    <div class="socials-menu">
+      <div class="social-button">
+        <a href="https://discord.gg/FrShW8JQBm" target="_blank"><i class="fa-brands fa-discord"/></a>
+      </div>
+      <div class="social-button">
+        <a href="https://www.facebook.com/gamedevUlaval" target="_blank"><i class="fa-brands fa-facebook-f"/></a>
+      </div>
+      <div class="social-button">
+        <a href="https://www.instagram.com/cdj.ul" target="_blank"><i class="fa-brands fa-instagram"/></a>
+      </div>
+      <div class="social-button">
+        <a href="https://www.linkedin.com/company/club-de-d%C3%A9veloppement-de-jeux-vid%C3%A9o-de-l-universit%C3%A9-laval/" target="_blank"><i class="fa-brands fa-linkedin-in"/></a>
+      </div>
+    </div>
     <transition name="fade">
       <router-view class="container-custom" />
     </transition>
@@ -65,7 +79,7 @@ import projectsIcon from '@/assets/navigation/projets.png'
 import sponsorsIcon from '@/assets/navigation/sponsors.png'
 
 export default {
-  name: "NavigationMenu",
+  name: "App",
   data() {
     return {
       aboutIcon,
@@ -194,5 +208,75 @@ body {
 
 p {
   font-size: 20px;
+}
+
+.socials-menu {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+  height: 100%;
+  top: 40vh;
+  z-index: 5;
+  a {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.social-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  background-color: #459A7B;
+  font-size: 48px;
+  transition: all 0.25s;
+  padding-top: 4px;
+}
+
+.social-button:hover {
+  background-color: #83FBD7;
+
+  a {
+    color: black;
+  }
+
+}
+
+@media screen and (max-width: 992px) {
+  .socials-menu {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: 5;
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  }
+
+  .social-button {
+    width: 256px;
+    height: 64px;
+    background-color: #459A7B;
+    font-size: 48px;
+    transition: all 0.25s;
+  }
+
+  .social-button:hover {
+    background-color: #83FBD7;
+
+    a {
+      color: black;
+    }
+
+  }
 }
 </style>
