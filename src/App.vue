@@ -46,6 +46,9 @@
                 Contact
               </router-link>
             </li>
+            <li class="member-button">
+              <a href="https://forms.gle/T7GeGy5awPoHb2yq5" target="_blank">Devenez membre!</a>
+            </li>
           </ul>
         </div>
       </nav>
@@ -215,8 +218,6 @@ p {
   display: flex;
   flex-direction: column;
   gap: 5px;
-  width: 100%;
-  height: 100%;
   top: 40vh;
   z-index: 5;
   a {
@@ -243,7 +244,37 @@ p {
   a {
     color: black;
   }
+}
 
+.member-button {
+  width: 200px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  margin-left: 15px;
+  background-color: #459A7B;
+  font-size: 48px;
+  transition: all 0.25s;
+
+  a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.member-button:hover {
+  background-color: #83FBD7;
+
+  a {
+    color: black;
+  }
 }
 
 @media screen and (max-width: 992px) {
@@ -276,7 +307,23 @@ p {
     a {
       color: black;
     }
-
   }
+
+  .member-button {
+    width: 256px;
+    height: 64px;
+    background-color: #459A7B;
+    font-size: 48px;
+    transition: all 0.25s;
+  }
+
+  .member-button:hover {
+    background-color: #83FBD7;
+
+    a {
+      color: black;
+    }
+  }
+
 }
 </style>

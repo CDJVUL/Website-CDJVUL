@@ -1,21 +1,24 @@
 <script setup>
 import * as webPages from './Home.js';
 const pages = webPages.sections
-
+import bgVideo from '@/assets/home/videoHome.mp4'
 </script>
 
 <template>
   <div class="home-menu">
     <img class="home-logo" src="../../assets/navigation/logo_cdjvul.png" alt="CDJVUL Logo">
     <div v-for="element of pages" :key="_" >
-      <button class="home-nav-button">
-        <img :src="getImage(element.image)" alt="CDJVUL Logo">
-        <router-link class="nav-link" :to="element.link">
+      <router-link class="nav-link" :to="element.link">
+        <button class="home-nav-button">
+          <img :src="getImage(element.image)" alt="CDJVUL Logo">
           {{ element.name }}
-        </router-link>
-      </button>
+        </button>
+      </router-link>
     </div>
   </div>
+  <video autoplay muted loop id="myVideo">
+    <source :src="bgVideo" type="video/mp4">
+  </video>
 </template>
 <style scoped src="./Home.css"></style>
 <script>
@@ -25,6 +28,14 @@ function getImage(imageName) {
 }
 </script>
 <style scoped>
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
 .home-logo {
   width: 150px;
   margin-bottom: 50px;
@@ -37,6 +48,7 @@ function getImage(imageName) {
   left: 50%;
   margin-top: -300px;
   margin-left: -125px;
+  z-index: 5;
 }
 .home-nav-button {
   display: flex;
