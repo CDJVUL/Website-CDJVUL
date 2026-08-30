@@ -2,7 +2,7 @@
   <div class="container-flex">
     <div class="projects-list">
       <div  v-for="(project, index) in projects" :key="index">
-        <button class="project-button" @click="changeProject(index)">{{ project.title }}</button>
+        <button :id="index" class="project-button" @click="changeProject(index)">{{ project.title }}</button>
       </div>
     </div>
     <div class="project-container">
@@ -71,6 +71,7 @@ export default {
     projects: [],
     chosenProject: null,
     chosenProjectImagesPaths: [],
+    activeIndex: null,
     showModal: false,
     logoClub
   }),
@@ -94,8 +95,15 @@ export default {
       });
     },
     changeProject(index){
+      if (this.activeIndex != null) {
+        var currentElement = document.getElementById(this.activeIndex);
+        currentElement.classList.remove("active");
+      }
       this.chosenProject = projectsDataFile.projects[index];
       this.chosenProjectImagesPaths = this.getAllImagesPath(this.chosenProject.imagesList, this.chosenProject.imagesFolder)
+      var activeElement = document.getElementById(index);
+      activeElement.classList.toggle("active");
+      this.activeIndex = index;
     },
     getAllImagesPath(imagesList, imagesFolder) {
       if (!imagesList) {
@@ -142,13 +150,14 @@ h1 {
   height: 1000px;
   margin-top: 122px;
   overflow: scroll;
+  scrollbar-color: #83FBD7 rgba(0,0,0,0);
 }
 
 .project-button {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 97.5%;
   height: 48px;
   margin: 0 0 15px 0;
   color: white;
@@ -160,6 +169,18 @@ h1 {
 .project-button:hover {
   background-color: #414042;
   border: 2px solid #83FBD7;
+}
+
+.active {
+  border: 2px solid #83FBD7;
+  border-right: 10px solid #83FBD7;
+}
+
+.active:hover {
+  background-color: rgb(0 0 0 / 0.95);
+  border: 2px solid #83FBD7;
+  border-right: 10px solid #83FBD7;
+  cursor: default;
 }
 
 .project-container {
@@ -248,7 +269,6 @@ img:hover {
   background-color: rgb(0, 0, 0); /* Fallback color */
   background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
 }
-
 .modal-content {
   margin: auto;
   display: block;

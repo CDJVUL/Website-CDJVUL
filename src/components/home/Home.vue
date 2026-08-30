@@ -6,7 +6,7 @@ import bgVideo from '@/assets/home/videoHome.mp4'
 
 <template>
   <div class="home-menu">
-    <img class="home-logo" src="../../assets/navigation/logo_cdjvul.png" alt="CDJVUL Logo">
+    <img class="home-logo" src="../../assets/home/logo_cdjvul.png" alt="CDJVUL Logo">
     <div v-for="element of pages" :key="_" >
       <router-link class="nav-link" :to="element.link">
         <button class="home-nav-button">

@@ -5,7 +5,7 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon" />
         </button>
-        <router-link class="nav-img left-align" to="/">
+        <router-link class="nav-img" to="/">
           <img :src="cdjLogo" class="navbar-img">
         </router-link>
         <div id="navbarNavAltMarkup" class="collapse navbar-collapse">
@@ -46,10 +46,10 @@
                 Contact
               </router-link>
             </li>
-            <li class="member-button">
-              <a href="https://forms.gle/T7GeGy5awPoHb2yq5" target="_blank">Devenez membre!</a>
-            </li>
           </ul>
+        </div>
+        <div class="member-button">
+          <a href="https://forms.gle/T7GeGy5awPoHb2yq5" target="_blank">Devenez membre!</a>
         </div>
       </nav>
     </div>
@@ -144,7 +144,6 @@ body {
 }
 .navbar {
   background-color: #000000;
-  border: 2px solid #459A7B;
   font-weight: bold;
   padding-left: 25px;
 }
@@ -226,9 +225,8 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 15px;
-  margin-left: 15px;
   background-color: #459A7B;
+  margin-right: 25px;
   font-size: 48px;
   transition: all 0.25s;
   a {
@@ -247,6 +245,10 @@ p {
   }
 }
 @media screen and (max-width: 992px) {
+  .navbar-img {
+    display: none;
+  }
+
   .socials-menu {
     position: relative;
     display: flex;
@@ -276,8 +278,8 @@ p {
     }
   }
   .member-button {
-    width: 256px;
-    height: 64px;
+    width: 186px;
+    height: 30px;
     background-color: #459A7B;
     font-size: 48px;
     transition: all 0.25s;

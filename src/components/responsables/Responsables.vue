@@ -18,7 +18,7 @@ import * as peopleInfo from './Responsables.js';
                 <p class="president-card-domain">{{ president.domain }}</p>
               </div>
                 <div class="linkedInButton">
-                  <a :href="president.link" target="_blank"><img :src="linkedInIcon" class="icons-link rounded-2"><span class="icon-box">LinkedIn</span></a>
+                  <a :href="president.link" target="_blank"><i class="fa-brands fa-linkedin-in"/><span class="icon-box">LinkedIn</span></a>
                 </div>
             </div>
           </div>
@@ -39,7 +39,7 @@ import * as peopleInfo from './Responsables.js';
               </div>
               <a :href="person.link" target="_blank">
                 <div class="linkedInButton">
-                  <img :src="linkedInIcon" class="icons-link rounded-2">
+                  <i class="fa-brands fa-linkedin-in"/>
                   <span class="icon-box">LinkedIn</span>
                 </div>
               </a>
@@ -52,7 +52,6 @@ import * as peopleInfo from './Responsables.js';
 </template>
 
 <script>
-import linkedInIcon from '@/assets/home/LinkedIn.png';
 import logoPath from '@/assets/home/logo_cdjvul_1920x1080.png';
 
 export default {
@@ -60,7 +59,6 @@ export default {
   data() {
     return {
       logoPath,
-      linkedInIcon,
       presidenceInfo : [],
       otherResponsables : []
     };
