@@ -5,7 +5,7 @@
     <p>Si vous souhaitez rentrer en contact avec le club, vous pouvez nous contacter à travers notre adresse courriel, sur notre serveur discord ou en personne!</p>
     <p>Adresse: <span class="bold-text">1065, avenue de la Médecine, Local PLT-3778, Québec, QC, G1V 0A6</span></p>
     <div class="map">
-      <Map v-model="location"/>
+      <campusMap v-model="location"/>
     </div>
     <div class="contact-links">
       <a class="contact-link" href="mailto:gamedev.admin@ift.ulaval.ca" target="_blank">Courriel</a>
@@ -14,11 +14,11 @@
   </div>
 </template>
 <script>
-import Map from "../map/Map.vue";
+import campusMap from "../map/Map.vue";
 
 export default {
   name: "ContactPage",
-  components: { Map },
+  components: { campusMap },
   data() {
     return {
       location: {

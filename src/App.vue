@@ -80,7 +80,6 @@ import eventsIcon from '@/assets/navigation/events.png'
 import membresIcon from '@/assets/navigation/membres.png'
 import projectsIcon from '@/assets/navigation/projets.png'
 import sponsorsIcon from '@/assets/navigation/sponsors.png'
-
 export default {
   name: "App",
   data() {
@@ -96,7 +95,6 @@ export default {
   },
 };
 </script>
-
 <style>
 #app {
   font-family: "Yuanmo", Helvetica, Arial, sans-serif;
@@ -114,59 +112,48 @@ export default {
   background-attachment: fixed;
   transition: 0.25s;
 }
-
 @font-face {
   font-family: "Yuanmo";
   src: url('assets/fonts/KNYuanmo-Regular.ttf') format('truetype');
 }
-
 .container-custom {
   color: white;
 }
-
 .version-separator {
   opacity: .5;
   margin: 10px auto;
   width: 250px;
 }
-
 .version-container {
   margin: 5px 0 10px;
 }
-
 html,
 body {
   height: 100%;
   margin: 0;
   background-color: #000000;
 }
-
 .fade-enter-active,
 .fade-leave-active {
   transition: all 0.5s ease;
 }
-
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
   transform: translateY(30px);
 }
-
 .navbar {
   background-color: #000000;
   border: 2px solid #459A7B;
   font-weight: bold;
   padding-left: 25px;
 }
-
 .navbar-toggler {
   border: 1px solid rgba(183, 67, 29, 0.5);
 }
-
 .navbar-toggler-icon {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28183, 67, 29, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
-
 .nav-item {
   display: flex;
   align-items: center;
@@ -174,45 +161,36 @@ body {
   border-bottom: 2px solid #000000;
   transition: 0.25s;
 }
-
 .nav-item:hover {
   border-bottom: 2px solid #83FBD7;
 }
-
 .nav-link {
   font-size: 14px;
   font-weight: bold;
   color: white;
   margin-bottom: 2px;
 }
-
 .navbar-img {
   margin: 0 15px 0 0;
   height: 42px;
 }
-
 .navbar-link-img {
   height: 42px;
 }
-
 .navbar-logo {
   width: 40px;
   height: 40px;
   margin-right: 25px;
 }
-
 .padding-left {
   padding-left: 10px;
 }
-
 .left-align {
   text-align: left;
 }
-
 p {
   font-size: 20px;
 }
-
 .socials-menu {
   position: fixed;
   display: flex;
@@ -225,7 +203,6 @@ p {
     text-decoration: none;
   }
 }
-
 .social-button {
   display: flex;
   align-items: center;
@@ -237,15 +214,12 @@ p {
   transition: all 0.25s;
   padding-top: 4px;
 }
-
 .social-button:hover {
   background-color: #83FBD7;
-
   a {
     color: black;
   }
 }
-
 .member-button {
   width: 200px;
   height: 32px;
@@ -257,26 +231,21 @@ p {
   background-color: #459A7B;
   font-size: 48px;
   transition: all 0.25s;
-
   a {
     color: white;
     text-decoration: none;
     font-size: 16px;
   }
-
   p {
     margin-bottom: 0;
   }
 }
-
 .member-button:hover {
   background-color: #83FBD7;
-
   a {
     color: black;
   }
 }
-
 @media screen and (max-width: 992px) {
   .socials-menu {
     position: relative;
@@ -292,7 +261,6 @@ p {
       text-decoration: none;
     }
   }
-
   .social-button {
     width: 256px;
     height: 64px;
@@ -300,7 +268,6 @@ p {
     font-size: 48px;
     transition: all 0.25s;
   }
-
   .social-button:hover {
     background-color: #83FBD7;
 
@@ -308,7 +275,6 @@ p {
       color: black;
     }
   }
-
   .member-button {
     width: 256px;
     height: 64px;
@@ -316,7 +282,6 @@ p {
     font-size: 48px;
     transition: all 0.25s;
   }
-
   .member-button:hover {
     background-color: #83FBD7;
 
@@ -324,6 +289,5 @@ p {
       color: black;
     }
   }
-
 }
 </style>
