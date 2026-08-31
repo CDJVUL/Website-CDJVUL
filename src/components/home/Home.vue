@@ -1,299 +1,91 @@
+<script setup>
+import * as webPages from './Home.js';
+const pages = webPages.sections
+import bgVideo from '@/assets/home/videoHome.mp4'
+</script>
+
 <template>
-  <div>
-    <br>
-    <h1>Bienvenue au club de développement de jeux vidéo de l'Université Laval</h1><br>
-    <h4 style="text-align: left; margin-right: 30px; margin-left: 30px;">
-      Le club de développement de jeux vidéo de l'Université Laval a pour objectif d'enrichir les connaissances en création de jeux vidéo
-      des étudiants de la faculté des sciences et génie. Pour ce faire, le club propose des formations,
-      des séances de travail et des conférences avec des professionnels de l'industrie. Ses membres sont encouragés à participer à des concours dans le but de réaliser des projets vidéoludiques.
-    </h4><br>
-    <!-- Carousel Wrapper -->
-    <div
-      class="row row-cols-1 row-cols-md-2 g-4 section1"
-    >
-      <div
-        class="col next-Available"
-        :style="{width: nextEventAvailable()?'80%':'100%'}"
-      >
-        <div
-          class="carousel-wrapper"
-          :style="{justifyContent: nextEventAvailable()?'flex-end':'center'}"
-        >
-          <div
-            id="carousel-project-images"
-            class="carousel slide carousel-fade"
-            data-bs-ride="carousel"
-            data-bs-interval="5000"
-            style="margin-bottom: 30px;"
-          >
-            <!-- Indicators -->
-            <div class="carousel-indicators">
-              <button
-                type="button"
-                data-bs-target="#carousel-project-images"
-                data-bs-slide-to="0"
-                class="active"
-              />
-              <button
-                v-for="(project, index) in projects"
-                :key="index"
-                type="button"
-                data-bs-target="#carousel-project-images"
-                :data-bs-slide-to="index+1"
-              />
-            </div>
-            <!-- Slides -->
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <div class="ratio ratio-16x9">
-                  <img
-                    class="d-block w-100"
-                    :src="logoPath"
-                    alt="Image introuvable"
-                  >
-                </div>
-              </div>
-              <div
-                v-for="(project, index) in projects"
-                :key="index"
-                class="carousel-item image-container"
-              >
-                <div class="ratio ratio-16x9">
-                  <img
-                    class="d-block w-100"
-                    :src="getImagePath(project.mainImagePath)"
-                    alt="Image introuvable"
-                    @click="goToProject(project.title)"
-                  >
-                </div>
-                <div
-                  style="background-color: gray; height: 140px; flex-direction: column; cursor:default;"
-                  class="overlay"
-                >
-                  <a
-                    href="javascript:;"
-                    style="color: white;"
-                    @click="goToProject(project.title)"
-                  >
-                    <p style="font-size: 30px;">{{ project.title }}</p>
-                  </a>
-                  <p
-                    :innerText="project.event"
-                    style="padding-top: 10px; font-size: 15px;"
-                  />
-                </div>
-              </div>
-            </div>
-            <!-- Controls -->
-            <button
-              type="button"
-              class="carousel-control-prev"
-              href="#carousel-project-images"
-              role="button"
-              data-bs-slide="prev"
-            >
-              <span
-                class="carousel-control-prev-icon"
-                aria-hidden="true"
-              />
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button
-              type="button"
-              class="carousel-control-next"
-              href="#carousel-project-images"
-              role="button"
-              data-bs-slide="next"
-            >
-              <span
-                class="carousel-control-next-icon"
-                aria-hidden="true"
-              />
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div
-        v-if="nextEventAvailable()"
-        class="col next-Event"
-      >
-        <h3>Prochain événement</h3>
-        <div class="card bg-dark text-white">
-          <div class="card-body text-center">
-            <h3 :innerText="eventsList.at(0).name" />
-            <p :innerText="eventsList.at(0).date" />
-            <p
-              :innerText="eventsList.at(0).shortDescription"
-              style="padding: 5px;"
-            />
-            <img
-              :src="eventsList.at(0).imageLink!=''?eventsList.at(0).imageLink:logoPath"
-              class="imgEvent"
-            ><br>
-            <button
-              class="eventsButton"
-              @click="$router.push({name: 'EvenementsPage', query: {nextEvent: true}})"
-            >
-              Plus d'infos
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-      <div
-        id="events"
-        class="col"
-      >
-        <div class="card bg-dark text-white h-100">
-          <div class="card-body text-center">
-            <div
-              display="block"
-              style="margin: auto; height: 15%;"
-            >
-              <h3 class="card-title">
-                Restez à jour sur les événements
-              </h3>
-            </div>
-            <div style="display: block; margin: auto; height:85%">
-              <div
-                class="row"
-                style="height: 50%;"
-              >
-                <div class="col">
-                  <br>
-                  <a
-                    href="https://www.facebook.com/gamedevUlaval/"
-                    target="_blank"
-                  >
-                    <div class="d-flex align-items-center justify-content-center">
-                      <img
-                        :src="facebookIcon"
-                        class="icons-link rounded-2"
-                      >
-                      <span class="icon-box">Facebook</span>
-                    </div>
-                  </a>
-                </div>
-                <div class="col">
-                  <br>
-                  <a
-                    href="https://discord.gg/FrShW8JQBm"
-                    target="_blank"
-                  >
-                    <div class="d-flex align-items-center justify-content-center">
-                      <img
-                        :src="discordIcon"
-                        class="icons-link rounded-2"
-                      >
-                      <span class="icon-box">Discord</span>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div
-                class="row"
-                style="height: 50%;"
-              >
-                <div class="col">
-                  <br>
-                  <a
-                    href="https://www.linkedin.com/company/club-de-d%C3%A9veloppement-de-jeux-vid%C3%A9o-de-l-universit%C3%A9-laval/"
-                    target="_blank"
-                  >
-                    <div class="d-flex align-items-center justify-content-center">
-                      <img
-                        :src="linkedInIcon"
-                        class="icons-link rounded-2"
-                      >
-                      <span class="icon-box">LinkedIn</span>
-                    </div>
-                  </a>
-                </div>
-                <div class="col">
-                  <br>
-                  <a
-                    href="https://www.instagram.com/cdjv.ul/"
-                    target="_blank"
-                  >
-                    <div class="d-flex align-items-center justify-content-center">
-                      <img
-                        :src="instagramIcon"
-                        class="icons-link rounded-2"
-                      >
-                      <span class="icon-box">Instagram</span>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card bg-dark text-white h-100">
-          <div class="card-body text-center">
-            <h3
-              class="card-title"
-              style="height: 5%;"
-            >
-              Présidence
-            </h3><br>
-            <div
-              style="display: grid; height: 85%;"
-              :style="{gridTemplateColumns: getColumns()}"
-            >
-              <div
-                v-for="(president, index) in presidentInfo"
-                :key="index"
-                style="padding: 5px; margin: auto;"
-              >
-                <img
-                  class="spotlight"
-                  alt="Image introuvable"
-                  :src="getImagePath(president.image, true)"
-                ><br><br>
-                <p
-                  style="font-size: 20px;"
-                  :innerText="president.name"
-                />
-                <p
-                  style="padding-top: 5px;"
-                  :innerText="president.domain"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card bg-dark text-white h-100">
-          <div class="card-body text-center">
-            <h3 class="card-title">
-              Où nous trouver?
-            </h3>
-            <p>1065 avenue de la Médecine, Québec, Canada<br>Pavillon Adrien-Pouliot<br>Local PLT-3778</p><br>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2824.8227201095738!2d-71.2758229883652!3d46.77825462261336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cb89780451e7bbb%3A0x89a343b60103826f!2sPavillon%20Adrien-Pouliot%20(PLT)%20-%20Universit%C3%A9%20Laval!5e1!3m2!1sfr!2sca!4v1740442946482!5m2!1sfr!2sca"
-              width="350"
-              height="220"
-              style="border:0; padding-bottom: 10px;"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              class="mapsGoogle"
-            />
-            <h3>Heures d'ouverture du local</h3>
-            <p>À déterminer</p><br><br>
-            <h3>Pour nous contacter</h3>
-            <p><a href="mailto:gamedev.admin@ift.ulaval.ca">gamedev.admin@ift.ulaval.ca</a></p>
-          </div>
-        </div>
-      </div>
+  <div class="home-menu">
+    <img class="home-logo" src="../../assets/home/logo_cdjvul.png" alt="CDJVUL Logo">
+    <div v-for="element of pages" :key="_" >
+      <router-link class="nav-link" :to="element.link">
+        <button class="home-nav-button">
+          <img :src="getImage(element.image)" alt="CDJVUL Logo">
+          {{ element.name }}
+        </button>
+      </router-link>
     </div>
   </div>
+  <video autoplay muted loop id="myVideo">
+    <source :src="bgVideo" type="video/mp4">
+  </video>
 </template>
-<script src="./Home.js"> export default {name: 'HomePage'}
-</script>
 <style scoped src="./Home.css"></style>
+<script>
+// eslint-disable-next-line func-style
+function getImage(imageName) {
+  return new URL(`../../assets/navigation/${imageName}`, import.meta.url).href;
+}
+</script>
+<style scoped>
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.home-logo {
+  width: 150px;
+  margin-bottom: 50px;
+  transition: 0.25s;
+  animation: 1s ease-out 0s 1 slideInFromBottom;
+}
+.home-menu {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -300px;
+  margin-left: -125px;
+  z-index: 5;
+}
+.home-nav-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 25px;
+  width: 250px;
+  height: 50px;
+  margin: 15px 0 15px 0;
+  padding: 25px 5px 25px 5px;
+  background-color: #000000;
+  border: 2px solid #459A7B;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  transition: 0.25s;
+  animation: 1s ease-out 0s 1 slideInFromBottom;
+
+  img {
+    width: 48px;
+    height: 48px;
+  }
+}
+.home-nav-button:hover {
+  background-color: #414042;
+  border: 2px solid #83FBD7;
+  font-weight: bolder;
+}
+
+@keyframes slideInFromBottom {
+  0% {
+    transform: translateY(25%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+</style>

@@ -5,7 +5,7 @@
 export const projects = [
     {
         title: "Lunar Lounge",
-        event: "Concurs Ubisoft 2026 (thème : Années 90)",
+        event: "Concurs Ubisoft 2026 (thème : Années 80/90)",
         description: "Deux adolescents, une console, et une salle à manger pleine d'animaux. Bienvenue à Lunar Lounge, une simulation de serveur intergalactique compétitive où la vitesse est tout. Course pour servir les clients avec les goûts les plus étranges de la galaxie, sabotez votre rival, et revendiquez votre gloire de jeu. Accélérez vite, servez plus vite, et faites attention à vos pas : c'est chaque serveur pour soi-même! Le jeu est disponible sur la page <a href=\"https://b3ru.itch.io/lunar-lounge\" target=\"_blank\">Itch.io de l'équipe.</a>",
         participants: [
             "Etienne Olivier",
@@ -30,7 +30,7 @@ export const projects = [
     },
     {
         title: "Arcadium Trip",
-        event: "Concurs Ubisoft 2026 (thème : Années 90)",
+        event: "Concurs Ubisoft 2026 (thème : Années 80/90)",
         description: "Coincés dans le monde instable d'Arcadium Trip, quatre étudiants n'ont pas d'autre choix que de s'affronter. Pour survivre, ils doivent collecter des pièces et éliminer leurs adversaires. Le jeu est disponible sur la page <a href=\"https://dev-devy.itch.io/arcadium-trip\" target=\"_blank\">Itch.io de l'équipe.</a>",
         participants: [
             "Alexandra Baloi",

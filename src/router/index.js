@@ -1,11 +1,12 @@
 import { createRouter, createWebHashHistory } from "vue-router";
+import Contact from "@/components/contact/contact.vue";
 import Evenements from "../components/evenements/Evenements.vue";
 import Home from "../components/home/Home.vue";
-import Information from "../components/information/Information.vue"
+import Information from "../components/information/Information.vue";
+import Partenaires from "../components/partenaires/Partenaires.vue";
 import ProjectOverview from "../components/projects/ProjectOverview.vue";
 import Projects from "../components/projects/Projects.vue";
 import Responsables from "../components/responsables/Responsables.vue";
-import partenaires from "../components/partenaires/Partenaires.vue";
 
 const router = createRouter({
     history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -41,9 +42,14 @@ const router = createRouter({
             component: Evenements
         },
         {
-            path: "/partenaires",
+            path: "/Partenaires",
             name: "PartenairesPage",
-            component: partenaires
+            component: Partenaires
+        },
+        {
+            path: "/Contact",
+            name: "ContactPage",
+            component: Contact
         },
     ],
     scrollBehavior (to, from, savedPosition) {
