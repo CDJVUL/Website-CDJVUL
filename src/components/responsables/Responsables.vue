@@ -1,143 +1,45 @@
 <script setup>
 import * as peopleInfo from './Responsables.js';
-import { VueCompareImage } from 'vue3-compare-image'
-
 </script>
 
 <template>
-  <div>
-    <h1
-      class="justify-content-center"
-      style="padding-top: 10px;"
-    >
-      L'équipe du club
-    </h1>
-    <p>
-      Voici pour la session d'Automne 2025 les responsables du club. Ces derniers sont des piliers importants au bon fonctionnement du club et de ses activités.<br>
-      Si vous souhaitez rentrer en contact avec l'une de ces personnes en particulier, écrivez-lui à travers l'adresse du club :<br>
-      <a href="mailto:gamedev.admin@ift.ulaval.ca">gamedev.admin@ift.ulaval.ca</a> en précisant à quelle personne s'adresse votre message. Merci !
-    </p>
-    <div class="row row-cols-1 row-cols-md-2 g-4">
-      <div
-        v-for="(president, _) in presidenceInfo"
-        :key="_"
-      >
-        <div
-          class="col"
-          style="height: 500px;"
-        >
-          <div class="card bg-dark text-white h-100">
-            <div class="card-body text-center">
-              <h3
-                class="card-title"
-                :innerText="president.role"
-                style="height: 40px;"
-              />
-              <br>
-              <VueCompareImage
-                v-if="president.image != '' && president.trollImg != ''"
-                :left-image="getPersonImage(president.image)"
-                :right-image="getPersonImage(president.trollImg)"
-                class="spotlight"
-                style="margin: auto;"
-                slider-position-percentage="0.9"
-              />
-              <img
-                v-if="!president.trollImg"
-                class="spotlight"
-                alt="Image introuvable"
-                :src="getPersonImage(president.image)"
-              >
-              <br v-if="!president.trollImg">
-              <br>
-              <p
-                :innerText="president.name"
-                style="font-size: 20px;"
-              />
-              <p
-                :innerText="president.domain"
-                style="padding-top: 5px; height: 50px; padding-bottom: 5px;"
-              />
-              <a
-                :href="president.link"
-                target="_blank"
-              >
-                <div
-                  class="d-flex align-items-center justify-content-center"
-                  style="padding-top: 10px;"
-                >
-                  <img
-                    :src="linkedInIcon"
-                    class="icons-link rounded-2"
-                    width="30px"
-                    height="30px"
-                  >
-                  <span class="icon-box">LinkedIn</span>
+  <div class="container-staff">
+    <h1 class="justify-content-center" style="padding-top: 10px;">L'équipe du club</h1>
+    <p>Voici les responsables du club pour la session d'Automne 2026. Ces derniers sont des piliers importants au bon fonctionnement du club et de ses activités.<br></p>
+    <div class="president-section">
+      <div v-for="(president, _) in presidenceInfo" :key="_">
+        <div class="president-section">
+          <div>
+            <div class="president-card">
+              <h3 class="president-card-title">{{ president.role }}</h3>
+              <img class="staff-img" alt="President" :src="getPersonImage(president.image)">
+              <div class="president-card-info">
+                <h3>{{ president.name }}</h3>
+                <p class="president-card-domain">{{ president.domain }}</p>
+              </div>
+                <div class="linkedInButton">
+                  <a :href="president.link" target="_blank"><i class="fa-brands fa-linkedin-in"/><span class="icon-box">LinkedIn</span></a>
                 </div>
-              </a>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <h2 style="padding-top: 20px;">
-      Autres responsables
-    </h2>
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-      <div
-        v-for="(person, _) in otherResponsables"
-        :key="_"
-      >
-        <div
-          class="col"
-          style="height: 500px;"
-        >
-          <div class="card bg-dark text-white h-100">
-            <div class="card-body text-center">
-              <h3
-                class="card-title"
-                :innerText="person.role"
-                style="height: 40px;"
-              />
-              <br>
-              <VueCompareImage
-                v-if="person.image != '' && person.trollImg != ''"
-                :left-image="getPersonImage(person.image)"
-                :right-image="getPersonImage(person.trollImg)"
-                class="spotlight"
-                style="margin: auto;"
-                slider-position-percentage="0.9"
-              />
-              <img
-                v-if="!person.trollImg"
-                class="spotlight"
-                alt="Image introuvable"
-                :src="getPersonImage(person.image)"
-              >
-              <br v-if="!person.trollImg">
-              <br>
-              <p
-                :innerText="person.name"
-                style="font-size: 20px;"
-              />
-              <p
-                :innerText="person.domain"
-                style="padding-top: 5px; height: 50px; padding-bottom: 5px;"
-              />
-              <a
-                :href="person.link"
-                target="_blank"
-              >
-                <div
-                  class="d-flex align-items-center justify-content-center"
-                  style="padding-top: 10px;"
-                >
-                  <img
-                    :src="linkedInIcon"
-                    class="icons-link rounded-2"
-                    width="30px"
-                    height="30px"
-                  >
+    <h2>Autres responsables</h2>
+    <div class="staff-section">
+      <div v-for="(person, _) in otherResponsables" :key="_">
+        <div class="col" style="height: 500px;">
+          <div>
+            <div class="staff-card">
+              <h3 class="staff-card-title">{{ person.role }}</h3>
+              <img class="staff-img" alt="Image introuvable" :src="getPersonImage(person.image)">
+              <div class="staff-card-info">
+                <h3>{{ person.name }}</h3>
+                <p class="staff-card-domain">{{ person.domain }}</p>
+              </div>
+              <a :href="person.link" target="_blank">
+                <div class="linkedInButton">
+                  <i class="fa-brands fa-linkedin-in"/>
                   <span class="icon-box">LinkedIn</span>
                 </div>
               </a>
@@ -150,7 +52,6 @@ import { VueCompareImage } from 'vue3-compare-image'
 </template>
 
 <script>
-import linkedInIcon from '@/assets/home/LinkedIn.png';
 import logoPath from '@/assets/home/logo_cdjvul_1920x1080.png';
 
 export default {
@@ -158,7 +59,6 @@ export default {
   data() {
     return {
       logoPath,
-      linkedInIcon,
       presidenceInfo : [],
       otherResponsables : []
     };
@@ -185,26 +85,25 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.row {
-  margin: 0;
-  align-items: center;
-  display: flex;
-  justify-content: space-around;
-  margin-left: 30px;
-  margin-right: 30px;
+.container-staff {
+  margin: 15px;
+  padding: 25px;
+  background-color: rgb(0 0 0 / 0.9);
+  border: 2px solid #459A7B;
+
+  p {
+    font-family: Agency FB, sans-serif;
+  }
 }
 
-.card {
-  margin-bottom: 2rem;
-}
-
-.spotlight {
-  border-radius: 50%;
+.staff-img {
   width: 100%;
-  max-width: 250px;
-  max-height: 250px;
+  max-width: 200px;
+  max-height: 200px;
   object-fit: cover;
   object-position: top;
+  margin-bottom: 2rem;
+  border: 2px solid #B7431D;
 }
 
 .icons-link {
@@ -220,18 +119,67 @@ export default {
   padding-left: 10px;
 }
 
-p {
-  margin: 0;
+.president-section {
+  margin-bottom: 25px;
 }
 
-.custom-indicators span {
-  background-color: white;
-  border: 1px solid white;
-  border-radius: 50%;
-  cursor: pointer;
-  display: inline-block;
-  height: 10px;
-  margin: 0 5px;
-  width: 10px;
+.staff-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 15px;
+}
+
+.president-card {
+  background-color: rgb(0 0 0 / 0.95);
+  padding: 10px;
+  border: 2px solid #83FBD7;
+  height: auto;
+
+  h3 {
+    font-size: 18px;
+  }
+}
+
+.president-card-title {
+  height: 20px;
+}
+
+.staff-card {
+  background-color: rgb(0 0 0 / 0.95);
+  padding: 10px;
+  border: 2px solid #83FBD7;
+  height: 475px;
+
+  h3 {
+    font-size: 18px;
+  }
+}
+
+.staff-card-title {
+  height: 40px;
+}
+
+.staff-card-info {
+  height: 100px;
+  margin-bottom: 20px;
+}
+
+.staff-card-domain {
+  margin-top: -10px;
+}
+
+@media screen and (max-width: 750px) {
+  .staff-section {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+
+  .staff-card {
+    height: auto;
+  }
+
+  .staff-card-info {
+    margin-bottom: 0;
+  }
 }
 </style>
