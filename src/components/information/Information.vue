@@ -1,8 +1,8 @@
 <template>
   <div class="full-container">
-    <p>Le Club de Développement de Jeu Vidéo de l'Université Laval est le club officiel de développement de jeu vidéo à l'université Laval à Québec.
+    <p>Le Club de Développement de Jeux Vidéo de l'Université Laval est le club officiel de développement de jeux vidéo à l'université Laval à Québec.
       <br/>
-      On accueil développeurs et artistes à participer! Chaque session, nous organisons des activités permettant aux étudiants de l'université Laval de pratiquer leurs talent de création de jeu vidéo, quel que soit leur niveau.
+      On accueil les développeurs et les artistes à participer! Chaque session, nous organisons des activités permettant aux étudiants de l'université Laval de pratiquer leurs talent de création de jeux vidéo, quel que soit leur niveau.
       <br/>
       <span class="bold-text">Joignez-nous!!</span></p>
   </div>
