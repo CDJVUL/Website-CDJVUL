@@ -20,7 +20,7 @@ if (window.screen.availWidth <= mobileWidth) {
           <p>{{ event.date }}</p>
           <p>{{ event.shortDescription }}</p>
           <img :src="event.imageLink!=''?event.imageLink:logoClub">
-          <button @click="showInfosModal(event)">Plus d'infos</button>
+          <button class="link-button" @click="loadPage(event.link)">Inscription</button>
         </div>
       </div>
     </section>
@@ -74,4 +74,18 @@ if (window.screen.availWidth <= mobileWidth) {
     margin: 10px;
   }
 }
+
+.link-button {
+  background-color: #83FBD7;
+  text-decoration: none;
+  color: black;
+  padding: 5px;
+  transition: all 0.25s;
+}
+
+.link-button:hover {
+    color: white;
+    background-color: #B7431D;
+}
+
 </style>
