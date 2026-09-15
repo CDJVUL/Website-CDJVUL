@@ -66,7 +66,7 @@ export default {
 
 .tier-section {
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 49.5% 49.5%;
   gap: 15px;
 }
 
@@ -78,8 +78,7 @@ export default {
   border: 2px solid #459A7B;
 
   img {
-    width: 250px;
-    height: 205px;
+    height: 150px;
   }
 }
 
