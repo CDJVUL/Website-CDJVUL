@@ -1,5 +1,5 @@
 <script setup>
-  import PlanPartenariats from '@/assets/partenaires/PLAN-COMMANDITE-CDJ-2025-2026.pdf'
+  import PlanPartenariats from '@/assets/partenaires/PLAN-COMMANDITE CDJ-2026-2027.pdf'
 </script>
 <template>
   <div class="container-partner">
