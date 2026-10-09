@@ -78,7 +78,7 @@ export default {
   border: 2px solid #459A7B;
 
   img {
-    height: 150px;
+    height: 250px;
   }
 }
 
